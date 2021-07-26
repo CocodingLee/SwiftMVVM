@@ -17,7 +17,7 @@ class FPDisposedBag {
 }
 
 // weak reference
-class FPdisposeable<T> {
+class FPDisposeable<T> {
     var completion: ((T) -> Void)?
     weak var observer: AnyObject?
     weak var liveData: FPLiveData<T>?
@@ -46,7 +46,7 @@ class FPLiveData<T> {
     }
     
     /// all obs
-    private var observers: [FPdisposeable<T>] = []
+    private var observers: [FPDisposeable<T>] = []
     
     
     /// notify
@@ -58,7 +58,7 @@ class FPLiveData<T> {
     
     /// notify the one observer
     /// - Parameter observer: the target observer
-    private func notifyOne(observer: FPdisposeable<T>) {
+    private func notifyOne(observer: FPDisposeable<T>) {
         guard let value = self.value else { return }
         observer.completion?(value)
     }
@@ -70,8 +70,8 @@ class FPLiveData<T> {
         self.value = value
     }
     
-    func add(observer: AnyObject, completion: @escaping (T) -> Void) -> FPdisposeable<T> {
-        let weakWrapper = FPdisposeable<T>()
+    func add(observer: AnyObject, completion: @escaping (T) -> Void) -> FPDisposeable<T> {
+        let weakWrapper = FPDisposeable<T>()
         weakWrapper.completion = completion
         weakWrapper.observer = observer
         weakWrapper.liveData = self
