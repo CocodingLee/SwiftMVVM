@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "029EA36C-6B33-4575-B767-C9A3798D1EF4"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "181D3505-0FE9-447B-87B1-B1869DD9F487"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SwiftMVVM/ViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D2A5556C-E29F-47CC-B6D8-8294E8ED143B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Foundation/FPLiveData.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "14"
+            endingLineNumber = "14"
+            landmarkName = "deinit"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "D2A5556C-E29F-47CC-B6D8-8294E8ED143B - 7ac24e56d7a6e0df"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SwiftMVVM.FPDisposedBag.deinit"
+                  moduleName = "SwiftMVVM"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Lee/3.%E6%88%91%E7%9A%84%E4%BB%A3%E7%A0%81/SwiftMVVM/Foundation/FPLiveData.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "31">
+               </Location>
+               <Location
+                  uuid = "D2A5556C-E29F-47CC-B6D8-8294E8ED143B - 729d454985842e6b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;() -&gt; ()&gt;) -&gt; () in SwiftMVVM.FPDisposedBag.deinit"
+                  moduleName = "SwiftMVVM"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Lee/3.%E6%88%91%E7%9A%84%E4%BB%A3%E7%A0%81/SwiftMVVM/Foundation/FPLiveData.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "55">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
