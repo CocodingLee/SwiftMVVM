@@ -7,19 +7,22 @@
 
 import Foundation
 
-class Runtime {
+class FPRuntime {
     
     public static func allClasses() -> [AnyClass] {
         let numberOfClasses = Int(objc_getClassList(nil, 0))
         if numberOfClasses > 0 {
             let classesPtr = UnsafeMutablePointer<AnyClass>.allocate(capacity: numberOfClasses)
+            defer { classesPtr.deallocate() }
+            
             let autoreleasingClasses = AutoreleasingUnsafeMutablePointer<AnyClass>(classesPtr)
             let count = objc_getClassList(autoreleasingClasses, Int32(numberOfClasses))
             assert(numberOfClasses == count)
-            defer { classesPtr.deallocate() }
+            
             let classes = (0 ..< numberOfClasses).map { classesPtr[$0] }
             return classes
         }
+        
         return []
     }
 
@@ -38,7 +41,11 @@ class Runtime {
         let classes = self.allClasses().filter { aClass in
             var subject: AnyClass? = aClass
             while let aClass = subject {
-                if class_conformsToProtocol(aClass, `protocol`) { print(String(describing: aClass)); return true }
+                if class_conformsToProtocol(aClass, `protocol`) {
+                    //print(String(describing: aClass));
+                    return true
+                }
+                
                 subject = class_getSuperclass(aClass)
             }
             return false

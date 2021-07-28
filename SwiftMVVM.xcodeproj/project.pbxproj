@@ -25,6 +25,8 @@
 		9BAADE3D26AFDE8C006EF5B2 /* FPBiz1Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAADE3C26AFDE8C006EF5B2 /* FPBiz1Model.swift */; };
 		9BAADE4226AFFF15006EF5B2 /* Runtime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAADE4126AFFF15006EF5B2 /* Runtime.swift */; };
 		9BAADE4626B0011D006EF5B2 /* FPRouteProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAADE4526B0011D006EF5B2 /* FPRouteProtocol.swift */; };
+		9BAADE4A26B0FF97006EF5B2 /* FPBaseRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAADE4926B0FF97006EF5B2 /* FPBaseRequest.swift */; };
+		9BAADE4C26B10EAA006EF5B2 /* FPBiz1Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAADE4B26B10EAA006EF5B2 /* FPBiz1Items.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +71,8 @@
 		9BAADE3C26AFDE8C006EF5B2 /* FPBiz1Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FPBiz1Model.swift; sourceTree = "<group>"; };
 		9BAADE4126AFFF15006EF5B2 /* Runtime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Runtime.swift; sourceTree = "<group>"; };
 		9BAADE4526B0011D006EF5B2 /* FPRouteProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FPRouteProtocol.swift; sourceTree = "<group>"; };
+		9BAADE4926B0FF97006EF5B2 /* FPBaseRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FPBaseRequest.swift; sourceTree = "<group>"; };
+		9BAADE4B26B10EAA006EF5B2 /* FPBiz1Items.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FPBiz1Items.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +157,8 @@
 		9BAADE1D26AEDC5E006EF5B2 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				9BAADE4826B0FF6A006EF5B2 /* Network */,
+				9BAADE4726B002EA006EF5B2 /* FPGlobal */,
 				9BAADE4426B00108006EF5B2 /* Router */,
 				9BAADE4326B000FC006EF5B2 /* Runtime */,
 				9BAADE3526AFDE15006EF5B2 /* DataBinding */,
@@ -216,6 +222,7 @@
 		9BAADE2726AFDD29006EF5B2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				9BAADE4B26B10EAA006EF5B2 /* FPBiz1Items.swift */,
 				9BAADE3C26AFDE8C006EF5B2 /* FPBiz1Model.swift */,
 			);
 			path = Model;
@@ -226,7 +233,6 @@
 			children = (
 				9BAADE3226AFDE00006EF5B2 /* FPBaseViewController.swift */,
 				9BAADE3626AFDE2F006EF5B2 /* FPBaseViewModel.swift */,
-				9BAADE3826AFDE5D006EF5B2 /* FPBaseModel.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -276,6 +282,22 @@
 				9BAADE4526B0011D006EF5B2 /* FPRouteProtocol.swift */,
 			);
 			path = Router;
+			sourceTree = "<group>";
+		};
+		9BAADE4726B002EA006EF5B2 /* FPGlobal */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = FPGlobal;
+			sourceTree = "<group>";
+		};
+		9BAADE4826B0FF6A006EF5B2 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				9BAADE3826AFDE5D006EF5B2 /* FPBaseModel.swift */,
+				9BAADE4926B0FF97006EF5B2 /* FPBaseRequest.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -412,9 +434,11 @@
 				9BAADE2F26AFDDC0006EF5B2 /* FPBiz1ViewController.swift in Sources */,
 				9BAADDF226AEA9A2006EF5B2 /* ViewController.swift in Sources */,
 				9BAADE3D26AFDE8C006EF5B2 /* FPBiz1Model.swift in Sources */,
+				9BAADE4A26B0FF97006EF5B2 /* FPBaseRequest.swift in Sources */,
 				9BAADE4226AFFF15006EF5B2 /* Runtime.swift in Sources */,
 				9BAADE4626B0011D006EF5B2 /* FPRouteProtocol.swift in Sources */,
 				9BAADE3926AFDE5D006EF5B2 /* FPBaseModel.swift in Sources */,
+				9BAADE4C26B10EAA006EF5B2 /* FPBiz1Items.swift in Sources */,
 				9BAADDEE26AEA9A2006EF5B2 /* AppDelegate.swift in Sources */,
 				9BAADDF026AEA9A2006EF5B2 /* SceneDelegate.swift in Sources */,
 				9BAADE3B26AFDE7B006EF5B2 /* FPBiz1ViewModel.swift in Sources */,

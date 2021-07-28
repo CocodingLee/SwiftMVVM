@@ -18,7 +18,7 @@ class FPBaseViewController: UIViewController
         let titleLabel = UILabel()
         
         // TODO: navigationItem待完善，使用mobileX的API
-        titleLabel.text = title
+        titleLabel.text = withTitle
         titleLabel.font = UIFont.systemFont(ofSize: 15)
         titleLabel.textColor = UIColor.darkGray
         titleLabel.accessibilityIdentifier = accessibilityId

@@ -33,13 +33,13 @@ class View: UIView {
     }
 }
 
-class ViewController: UIViewController {
+class ViewController: FPBaseViewController {
 
     let dispodeBag = FPDisposedBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setupNavigationBar(withTitle: "LiveData", accessibilityId: "acc_dd_xx")
         
         let liveData = FPLiveData<Bool>()
         let view1 = View()
