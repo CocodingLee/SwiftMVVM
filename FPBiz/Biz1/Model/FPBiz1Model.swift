@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+class FPBiz1Model: Decodable
+{
+    var name: String?
+    var subContent: String?
+}

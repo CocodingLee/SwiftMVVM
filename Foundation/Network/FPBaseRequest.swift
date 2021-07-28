@@ -7,14 +7,6 @@
 
 import Foundation
 
-// mock
-class MobileX_HTTPRequest
-{
-    
-}
-
-// mock
-
 enum FPHTTPMethod: String
 {
     case get    = "GET"
@@ -63,7 +55,11 @@ extension FPBaseRequest: CustomStringConvertible
 
 extension FPBaseRequest
 {
-    func asHTTPRequest() -> MobileX_HTTPRequest {
+    func asHTTPRequest() throws -> MobileX_HTTPRequest {
+        if (1 != 1) {
+            throw FPBaseError.clientAPIInvokeError(apiName: "call FPBaseRequest - asHTTPRequest")
+        }
+        
         return MobileX_HTTPRequest();
     }
 }
@@ -96,9 +92,9 @@ class FPHTTPsRequest: FPBaseRequest
         }
         
         set {
+            super.path = newValue
             fatalError("no need set https path , should use prefix/sub path")
-        }
-        
+        }  
     }
     
 }

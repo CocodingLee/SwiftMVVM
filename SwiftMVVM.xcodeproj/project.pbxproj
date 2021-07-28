@@ -26,7 +26,10 @@
 		9BAADE4226AFFF15006EF5B2 /* Runtime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAADE4126AFFF15006EF5B2 /* Runtime.swift */; };
 		9BAADE4626B0011D006EF5B2 /* FPRouteProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAADE4526B0011D006EF5B2 /* FPRouteProtocol.swift */; };
 		9BAADE4A26B0FF97006EF5B2 /* FPBaseRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAADE4926B0FF97006EF5B2 /* FPBaseRequest.swift */; };
-		9BAADE4C26B10EAA006EF5B2 /* FPBiz1Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAADE4B26B10EAA006EF5B2 /* FPBiz1Items.swift */; };
+		9BAADE4E26B11306006EF5B2 /* FPBaseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAADE4D26B11306006EF5B2 /* FPBaseResponse.swift */; };
+		9BAADE5026B14049006EF5B2 /* MockFPNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAADE4F26B14049006EF5B2 /* MockFPNetwork.swift */; };
+		9BAADE5326B14E81006EF5B2 /* FPThread.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAADE5226B14E81006EF5B2 /* FPThread.swift */; };
+		9BAADE5626B1514E006EF5B2 /* mock_network_type.json in Resources */ = {isa = PBXBuildFile; fileRef = 9BAADE5526B1514E006EF5B2 /* mock_network_type.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,7 +75,10 @@
 		9BAADE4126AFFF15006EF5B2 /* Runtime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Runtime.swift; sourceTree = "<group>"; };
 		9BAADE4526B0011D006EF5B2 /* FPRouteProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FPRouteProtocol.swift; sourceTree = "<group>"; };
 		9BAADE4926B0FF97006EF5B2 /* FPBaseRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FPBaseRequest.swift; sourceTree = "<group>"; };
-		9BAADE4B26B10EAA006EF5B2 /* FPBiz1Items.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FPBiz1Items.swift; sourceTree = "<group>"; };
+		9BAADE4D26B11306006EF5B2 /* FPBaseResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FPBaseResponse.swift; sourceTree = "<group>"; };
+		9BAADE4F26B14049006EF5B2 /* MockFPNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockFPNetwork.swift; sourceTree = "<group>"; };
+		9BAADE5226B14E81006EF5B2 /* FPThread.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FPThread.swift; sourceTree = "<group>"; };
+		9BAADE5526B1514E006EF5B2 /* mock_network_type.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mock_network_type.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +131,7 @@
 		9BAADDEC26AEA9A2006EF5B2 /* SwiftMVVM */ = {
 			isa = PBXGroup;
 			children = (
+				9BAADE5426B150E2006EF5B2 /*  MockNetwork */,
 				9BAADDED26AEA9A2006EF5B2 /* AppDelegate.swift */,
 				9BAADDEF26AEA9A2006EF5B2 /* SceneDelegate.swift */,
 				9BAADDF126AEA9A2006EF5B2 /* ViewController.swift */,
@@ -157,6 +164,7 @@
 		9BAADE1D26AEDC5E006EF5B2 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				9BAADE5126B141DE006EF5B2 /* UIKit */,
 				9BAADE4826B0FF6A006EF5B2 /* Network */,
 				9BAADE4726B002EA006EF5B2 /* FPGlobal */,
 				9BAADE4426B00108006EF5B2 /* Router */,
@@ -222,7 +230,6 @@
 		9BAADE2726AFDD29006EF5B2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				9BAADE4B26B10EAA006EF5B2 /* FPBiz1Items.swift */,
 				9BAADE3C26AFDE8C006EF5B2 /* FPBiz1Model.swift */,
 			);
 			path = Model;
@@ -296,8 +303,26 @@
 			children = (
 				9BAADE3826AFDE5D006EF5B2 /* FPBaseModel.swift */,
 				9BAADE4926B0FF97006EF5B2 /* FPBaseRequest.swift */,
+				9BAADE4D26B11306006EF5B2 /* FPBaseResponse.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		9BAADE5126B141DE006EF5B2 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				9BAADE5226B14E81006EF5B2 /* FPThread.swift */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
+		9BAADE5426B150E2006EF5B2 /*  MockNetwork */ = {
+			isa = PBXGroup;
+			children = (
+				9BAADE5526B1514E006EF5B2 /* mock_network_type.json */,
+				9BAADE4F26B14049006EF5B2 /* MockFPNetwork.swift */,
+			);
+			path = " MockNetwork";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -405,6 +430,7 @@
 			files = (
 				9BAADDFA26AEA9A4006EF5B2 /* LaunchScreen.storyboard in Resources */,
 				9BAADDF726AEA9A4006EF5B2 /* Assets.xcassets in Resources */,
+				9BAADE5626B1514E006EF5B2 /* mock_network_type.json in Resources */,
 				9BAADDF526AEA9A2006EF5B2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -431,20 +457,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				9BAADE3326AFDE00006EF5B2 /* FPBaseViewController.swift in Sources */,
+				9BAADE5326B14E81006EF5B2 /* FPThread.swift in Sources */,
 				9BAADE2F26AFDDC0006EF5B2 /* FPBiz1ViewController.swift in Sources */,
+				9BAADE5026B14049006EF5B2 /* MockFPNetwork.swift in Sources */,
 				9BAADDF226AEA9A2006EF5B2 /* ViewController.swift in Sources */,
 				9BAADE3D26AFDE8C006EF5B2 /* FPBiz1Model.swift in Sources */,
 				9BAADE4A26B0FF97006EF5B2 /* FPBaseRequest.swift in Sources */,
 				9BAADE4226AFFF15006EF5B2 /* Runtime.swift in Sources */,
 				9BAADE4626B0011D006EF5B2 /* FPRouteProtocol.swift in Sources */,
 				9BAADE3926AFDE5D006EF5B2 /* FPBaseModel.swift in Sources */,
-				9BAADE4C26B10EAA006EF5B2 /* FPBiz1Items.swift in Sources */,
 				9BAADDEE26AEA9A2006EF5B2 /* AppDelegate.swift in Sources */,
 				9BAADDF026AEA9A2006EF5B2 /* SceneDelegate.swift in Sources */,
 				9BAADE3B26AFDE7B006EF5B2 /* FPBiz1ViewModel.swift in Sources */,
 				9BAADE3726AFDE2F006EF5B2 /* FPBaseViewModel.swift in Sources */,
 				9BAADE1F26AEDCC7006EF5B2 /* FPLiveData.swift in Sources */,
 				9BAADE3126AFDDD0006EF5B2 /* FPBiz1SubView.swift in Sources */,
+				9BAADE4E26B11306006EF5B2 /* FPBaseResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -622,6 +650,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7WLG52Q7BR;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
 				INFOPLIST_FILE = SwiftMVVM/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -629,6 +661,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.grapewine.www.SwiftMVVM;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG MOCK_HTTP_DATA";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
