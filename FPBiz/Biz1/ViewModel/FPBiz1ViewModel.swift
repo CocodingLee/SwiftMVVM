@@ -7,8 +7,11 @@
 
 import Foundation
 
-class FPBiz1ViewModel
+class FPBiz1ViewModel: FPBaseViewModel
 {
+    private(set) var model = FPLiveData<FPBiz1Model?>()
+    private(set) var error = FPLiveData<FPBaseError?>()
+    
     func load(i1: String , i2: String) -> Void {
         let req = FPHTTPsPostRequest()
         req.prefixPath = ""
@@ -17,8 +20,38 @@ class FPBiz1ViewModel
         req.queryParameters = ["name":"n1" , "name":"n2"]
         
         // 网络请求
-        FPNetworkModel.fetch(request: req , resposeType: FPBiz1Model.self) { req, result in
-            
+        FPNetworkModel.fetch(request: req , resposeType: FPBiz1Model.self) { [weak self] req, result in
+            switch result {
+            case .success(let model):
+                self?.model.publish(value: model)
+            case .failure(let error):
+                self?.error.publish(value: error)
+            }
+        }
+    }
+}
+
+
+class FPBiz1ForXXViewModel: FPBaseViewModel
+{
+    private(set) var model = FPLiveData<FPBiz1Model?>()
+    private(set) var error = FPLiveData<FPBaseError?>()
+    
+    func load(i1: String , i2: String) -> Void {
+        let req = FPHTTPsPostRequest()
+        req.prefixPath = ""
+        req.subPath = ""
+        req.parameters = ["name":i1 , "name":i2]
+        req.queryParameters = ["name":"n1" , "name":"n2"]
+        
+        // 网络请求
+        FPNetworkModel.fetch(request: req , resposeType: FPBiz1Model.self) { [weak self] req, result in
+            switch result {
+            case .success(let model):
+                self?.model.publish(value: model)
+            case .failure(let error):
+                self?.error.publish(value: error)
+            }
         }
     }
 }

@@ -12,6 +12,8 @@ class FPBaseViewController: UIViewController
 {
     // resource recycling bag
     let bag = FPDisposedBag()
+    var navigationTitle: String?
+    var accessibilityId: String?
     
     // setup navigation
     func setupNavigationBar(withTitle:String , accessibilityId:String) {
@@ -43,4 +45,29 @@ class FPBaseViewController: UIViewController
         self.navigationController?.popViewController(animated: true)
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // setup navigation
+        setupNavigationBar(withTitle: self.navigationTitle ?? ""
+                           , accessibilityId: self.accessibilityId ?? "")
+        // bind model
+        bindViewModel()
+        // setup views
+        setupSubViews()
+        // load data
+        fetchDataFromServer()
+    }
+    
+    // subclass override
+    func bindViewModel() -> Void {
+        fatalError("subclass must override this function")
+    }
+    
+    func setupSubViews() -> Void {
+        fatalError("subclass must override this function")
+    }
+    
+    func fetchDataFromServer() -> Void {
+        fatalError("subclass must override this function")
+    }
 }

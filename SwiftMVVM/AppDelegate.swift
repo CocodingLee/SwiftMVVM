@@ -15,8 +15,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        let tmp = FPRuntime.classes(conformToProtocol: FBRouteProtocol.self)
-        print(tmp)
+        //let tmp = FPRuntime.classes(conformToProtocol: FBRouteProtocol.self)
+        //print(tmp)
         
         return true
     }
