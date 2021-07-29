@@ -28,6 +28,14 @@
 		9BAADE5026B14049006EF5B2 /* MockFPNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAADE4F26B14049006EF5B2 /* MockFPNetwork.swift */; };
 		9BAADE5326B14E81006EF5B2 /* FPThread.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAADE5226B14E81006EF5B2 /* FPThread.swift */; };
 		9BAADE5626B1514E006EF5B2 /* mock_network_type.json in Resources */ = {isa = PBXBuildFile; fileRef = 9BAADE5526B1514E006EF5B2 /* mock_network_type.json */; };
+		9BAADE7526B297AF006EF5B2 /* FPBiz2ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAADE6D26B297AF006EF5B2 /* FPBiz2ViewModel.swift */; };
+		9BAADE7626B297AF006EF5B2 /* FPBiz2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAADE7026B297AF006EF5B2 /* FPBiz2ViewController.swift */; };
+		9BAADE7726B297AF006EF5B2 /* FPBiz2SubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAADE7226B297AF006EF5B2 /* FPBiz2SubView.swift */; };
+		9BAADE7826B297AF006EF5B2 /* FPBiz2Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAADE7426B297AF006EF5B2 /* FPBiz2Model.swift */; };
+		9BAADE8226B29832006EF5B2 /* FPBiz3ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAADE7A26B29831006EF5B2 /* FPBiz3ViewModel.swift */; };
+		9BAADE8326B29832006EF5B2 /* FPBiz3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAADE7D26B29831006EF5B2 /* FPBiz3ViewController.swift */; };
+		9BAADE8426B29832006EF5B2 /* FPBiz3SubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAADE7F26B29831006EF5B2 /* FPBiz3SubView.swift */; };
+		9BAADE8526B29832006EF5B2 /* FPBiz3Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAADE8126B29832006EF5B2 /* FPBiz3Model.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +83,14 @@
 		9BAADE4F26B14049006EF5B2 /* MockFPNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockFPNetwork.swift; sourceTree = "<group>"; };
 		9BAADE5226B14E81006EF5B2 /* FPThread.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FPThread.swift; sourceTree = "<group>"; };
 		9BAADE5526B1514E006EF5B2 /* mock_network_type.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mock_network_type.json; sourceTree = "<group>"; };
+		9BAADE6D26B297AF006EF5B2 /* FPBiz2ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FPBiz2ViewModel.swift; sourceTree = "<group>"; };
+		9BAADE7026B297AF006EF5B2 /* FPBiz2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FPBiz2ViewController.swift; sourceTree = "<group>"; };
+		9BAADE7226B297AF006EF5B2 /* FPBiz2SubView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FPBiz2SubView.swift; sourceTree = "<group>"; };
+		9BAADE7426B297AF006EF5B2 /* FPBiz2Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FPBiz2Model.swift; sourceTree = "<group>"; };
+		9BAADE7A26B29831006EF5B2 /* FPBiz3ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FPBiz3ViewModel.swift; sourceTree = "<group>"; };
+		9BAADE7D26B29831006EF5B2 /* FPBiz3ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FPBiz3ViewController.swift; sourceTree = "<group>"; };
+		9BAADE7F26B29831006EF5B2 /* FPBiz3SubView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FPBiz3SubView.swift; sourceTree = "<group>"; };
+		9BAADE8126B29832006EF5B2 /* FPBiz3Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FPBiz3Model.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,6 +208,9 @@
 		9BAADE2326AFDCFB006EF5B2 /* Biz2 */ = {
 			isa = PBXGroup;
 			children = (
+				9BAADE7326B297AF006EF5B2 /* Model */,
+				9BAADE6E26B297AF006EF5B2 /* ViewController */,
+				9BAADE6C26B297AF006EF5B2 /* ViewModel */,
 			);
 			path = Biz2;
 			sourceTree = "<group>";
@@ -199,6 +218,9 @@
 		9BAADE2426AFDD09006EF5B2 /* Biz3 */ = {
 			isa = PBXGroup;
 			children = (
+				9BAADE8026B29832006EF5B2 /* Model */,
+				9BAADE7B26B29831006EF5B2 /* ViewController */,
+				9BAADE7926B29831006EF5B2 /* ViewModel */,
 			);
 			path = Biz3;
 			sourceTree = "<group>";
@@ -317,6 +339,88 @@
 				9BAADE4F26B14049006EF5B2 /* MockFPNetwork.swift */,
 			);
 			path = " MockNetwork";
+			sourceTree = "<group>";
+		};
+		9BAADE6C26B297AF006EF5B2 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				9BAADE6D26B297AF006EF5B2 /* FPBiz2ViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		9BAADE6E26B297AF006EF5B2 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				9BAADE6F26B297AF006EF5B2 /* Controllers */,
+				9BAADE7126B297AF006EF5B2 /* Views */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		9BAADE6F26B297AF006EF5B2 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				9BAADE7026B297AF006EF5B2 /* FPBiz2ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		9BAADE7126B297AF006EF5B2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9BAADE7226B297AF006EF5B2 /* FPBiz2SubView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9BAADE7326B297AF006EF5B2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9BAADE7426B297AF006EF5B2 /* FPBiz2Model.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9BAADE7926B29831006EF5B2 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				9BAADE7A26B29831006EF5B2 /* FPBiz3ViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		9BAADE7B26B29831006EF5B2 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				9BAADE7C26B29831006EF5B2 /* Controllers */,
+				9BAADE7E26B29831006EF5B2 /* Views */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		9BAADE7C26B29831006EF5B2 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				9BAADE7D26B29831006EF5B2 /* FPBiz3ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		9BAADE7E26B29831006EF5B2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9BAADE7F26B29831006EF5B2 /* FPBiz3SubView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9BAADE8026B29832006EF5B2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9BAADE8126B29832006EF5B2 /* FPBiz3Model.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -452,10 +556,13 @@
 				9BAADE3326AFDE00006EF5B2 /* FPBaseViewController.swift in Sources */,
 				9BAADE5326B14E81006EF5B2 /* FPThread.swift in Sources */,
 				9BAADE2F26AFDDC0006EF5B2 /* FPBiz1ViewController.swift in Sources */,
+				9BAADE7726B297AF006EF5B2 /* FPBiz2SubView.swift in Sources */,
 				9BAADE5026B14049006EF5B2 /* MockFPNetwork.swift in Sources */,
+				9BAADE7826B297AF006EF5B2 /* FPBiz2Model.swift in Sources */,
 				9BAADDF226AEA9A2006EF5B2 /* ViewController.swift in Sources */,
 				9BAADE3D26AFDE8C006EF5B2 /* FPBiz1Model.swift in Sources */,
 				9BAADE4A26B0FF97006EF5B2 /* FPBaseRequest.swift in Sources */,
+				9BAADE7526B297AF006EF5B2 /* FPBiz2ViewModel.swift in Sources */,
 				9BAADE4226AFFF15006EF5B2 /* Runtime.swift in Sources */,
 				9BAADE4626B0011D006EF5B2 /* FPRouteProtocol.swift in Sources */,
 				9BAADE3926AFDE5D006EF5B2 /* FPBaseModel.swift in Sources */,
@@ -463,7 +570,12 @@
 				9BAADE3B26AFDE7B006EF5B2 /* FPBiz1ViewModel.swift in Sources */,
 				9BAADE3726AFDE2F006EF5B2 /* FPBaseViewModel.swift in Sources */,
 				9BAADE1F26AEDCC7006EF5B2 /* FPLiveData.swift in Sources */,
+				9BAADE8426B29832006EF5B2 /* FPBiz3SubView.swift in Sources */,
+				9BAADE8526B29832006EF5B2 /* FPBiz3Model.swift in Sources */,
 				9BAADE3126AFDDD0006EF5B2 /* FPBiz1SubView.swift in Sources */,
+				9BAADE8226B29832006EF5B2 /* FPBiz3ViewModel.swift in Sources */,
+				9BAADE8326B29832006EF5B2 /* FPBiz3ViewController.swift in Sources */,
+				9BAADE7626B297AF006EF5B2 /* FPBiz2ViewController.swift in Sources */,
 				9BAADE4E26B11306006EF5B2 /* FPBaseResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

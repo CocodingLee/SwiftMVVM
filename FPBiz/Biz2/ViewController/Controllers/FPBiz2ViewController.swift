@@ -7,10 +7,10 @@
 
 import Foundation
 
-final class FPBiz1ViewController: FPBaseViewController
+final class FPBiz2ViewController: FPBaseViewController
 {
-    lazy private var viewModel = FPBiz1ViewModel()
-    lazy private var forXXviewModel = FPBiz1ForXXViewModel()
+    lazy private var viewModel = FPBiz2ViewModel()
+    lazy private var forXXviewModel = FPBiz2ForXXViewModel()
   
     override func viewDidLoad() {
         super.navigationTitle = "Biz1"
@@ -47,7 +47,7 @@ final class FPBiz1ViewController: FPBaseViewController
 }
 
 // MARK: Route by FBRouteProtocol
-extension FPBiz1ViewController: FBRouteProtocol
+extension FPBiz2ViewController: FBRouteProtocol
 {
     static var supportedDomain: String {
         "domain.fp.biz"
@@ -63,7 +63,7 @@ extension FPBiz1ViewController: FBRouteProtocol
 }
 
 // empty view
-extension FPBiz1ViewController
+extension FPBiz2ViewController
 {
     
     
