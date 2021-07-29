@@ -50,11 +50,11 @@ final class FPBiz2ViewController: FPBaseViewController
 extension FPBiz2ViewController: FBRouteProtocol
 {
     static var supportedDomain: String {
-        "domain.fp.biz"
+        FPRouteDomain.url.rawValue
     }
     
     static var supportedPath: [String] {
-        ["path.fp.biz1"]
+        ["path.fp.biz2"]
     }
     
     convenience init(params: Dictionary<String, Any>) {

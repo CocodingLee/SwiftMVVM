@@ -50,7 +50,7 @@ final class FPBiz3ViewController: FPBaseViewController
 extension FPBiz3ViewController: FBRouteProtocol
 {
     static var supportedDomain: String {
-        "domain.fp.biz"
+        FPRouteDomain.url.rawValue
     }
     
     static var supportedPath: [String] {

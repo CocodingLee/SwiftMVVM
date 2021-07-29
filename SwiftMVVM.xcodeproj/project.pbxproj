@@ -36,6 +36,11 @@
 		9BAADE8326B29832006EF5B2 /* FPBiz3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAADE7D26B29831006EF5B2 /* FPBiz3ViewController.swift */; };
 		9BAADE8426B29832006EF5B2 /* FPBiz3SubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAADE7F26B29831006EF5B2 /* FPBiz3SubView.swift */; };
 		9BAADE8526B29832006EF5B2 /* FPBiz3Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAADE8126B29832006EF5B2 /* FPBiz3Model.swift */; };
+		9BAADE8726B29EFC006EF5B2 /* FPRoutePlugInManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAADE8626B29EFC006EF5B2 /* FPRoutePlugInManager.swift */; };
+		9BAADE8A26B2A7E1006EF5B2 /* FPRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAADE8926B2A7E1006EF5B2 /* FPRoute.swift */; };
+		9BAADE8C26B2AFD3006EF5B2 /* FPRouteRegTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAADE8B26B2AFD3006EF5B2 /* FPRouteRegTree.swift */; };
+		9BAADE8E26B2B33B006EF5B2 /* FPRouteRegManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAADE8D26B2B33B006EF5B2 /* FPRouteRegManager.swift */; };
+		9BAADE9126B2B4E8006EF5B2 /* FPDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAADE9026B2B4E8006EF5B2 /* FPDefine.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +96,11 @@
 		9BAADE7D26B29831006EF5B2 /* FPBiz3ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FPBiz3ViewController.swift; sourceTree = "<group>"; };
 		9BAADE7F26B29831006EF5B2 /* FPBiz3SubView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FPBiz3SubView.swift; sourceTree = "<group>"; };
 		9BAADE8126B29832006EF5B2 /* FPBiz3Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FPBiz3Model.swift; sourceTree = "<group>"; };
+		9BAADE8626B29EFC006EF5B2 /* FPRoutePlugInManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FPRoutePlugInManager.swift; sourceTree = "<group>"; };
+		9BAADE8926B2A7E1006EF5B2 /* FPRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FPRoute.swift; sourceTree = "<group>"; };
+		9BAADE8B26B2AFD3006EF5B2 /* FPRouteRegTree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FPRouteRegTree.swift; sourceTree = "<group>"; };
+		9BAADE8D26B2B33B006EF5B2 /* FPRouteRegManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FPRouteRegManager.swift; sourceTree = "<group>"; };
+		9BAADE9026B2B4E8006EF5B2 /* FPDefine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FPDefine.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +166,7 @@
 		9BAADE0326AEA9A4006EF5B2 /* SwiftMVVMTests */ = {
 			isa = PBXGroup;
 			children = (
+				9BAADE8826B2A7BD006EF5B2 /* FPRoute */,
 				9BAADE0426AEA9A4006EF5B2 /* SwiftMVVMTests.swift */,
 				9BAADE0626AEA9A4006EF5B2 /* Info.plist */,
 			);
@@ -188,6 +199,7 @@
 		9BAADE2026AFDCD9006EF5B2 /* FPBiz */ = {
 			isa = PBXGroup;
 			children = (
+				9BAADE8F26B2B4DA006EF5B2 /* Common */,
 				9BAADE2126AFDCE2006EF5B2 /* Biz1 */,
 				9BAADE2326AFDCFB006EF5B2 /* Biz2 */,
 				9BAADE2426AFDD09006EF5B2 /* Biz3 */,
@@ -303,6 +315,9 @@
 			isa = PBXGroup;
 			children = (
 				9BAADE4526B0011D006EF5B2 /* FPRouteProtocol.swift */,
+				9BAADE8626B29EFC006EF5B2 /* FPRoutePlugInManager.swift */,
+				9BAADE8B26B2AFD3006EF5B2 /* FPRouteRegTree.swift */,
+				9BAADE8D26B2B33B006EF5B2 /* FPRouteRegManager.swift */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -421,6 +436,22 @@
 				9BAADE8126B29832006EF5B2 /* FPBiz3Model.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		9BAADE8826B2A7BD006EF5B2 /* FPRoute */ = {
+			isa = PBXGroup;
+			children = (
+				9BAADE8926B2A7E1006EF5B2 /* FPRoute.swift */,
+			);
+			path = FPRoute;
+			sourceTree = "<group>";
+		};
+		9BAADE8F26B2B4DA006EF5B2 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				9BAADE9026B2B4E8006EF5B2 /* FPDefine.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -555,6 +586,7 @@
 			files = (
 				9BAADE3326AFDE00006EF5B2 /* FPBaseViewController.swift in Sources */,
 				9BAADE5326B14E81006EF5B2 /* FPThread.swift in Sources */,
+				9BAADE9126B2B4E8006EF5B2 /* FPDefine.swift in Sources */,
 				9BAADE2F26AFDDC0006EF5B2 /* FPBiz1ViewController.swift in Sources */,
 				9BAADE7726B297AF006EF5B2 /* FPBiz2SubView.swift in Sources */,
 				9BAADE5026B14049006EF5B2 /* MockFPNetwork.swift in Sources */,
@@ -564,6 +596,7 @@
 				9BAADE4A26B0FF97006EF5B2 /* FPBaseRequest.swift in Sources */,
 				9BAADE7526B297AF006EF5B2 /* FPBiz2ViewModel.swift in Sources */,
 				9BAADE4226AFFF15006EF5B2 /* Runtime.swift in Sources */,
+				9BAADE8C26B2AFD3006EF5B2 /* FPRouteRegTree.swift in Sources */,
 				9BAADE4626B0011D006EF5B2 /* FPRouteProtocol.swift in Sources */,
 				9BAADE3926AFDE5D006EF5B2 /* FPBaseModel.swift in Sources */,
 				9BAADDEE26AEA9A2006EF5B2 /* AppDelegate.swift in Sources */,
@@ -574,8 +607,10 @@
 				9BAADE8526B29832006EF5B2 /* FPBiz3Model.swift in Sources */,
 				9BAADE3126AFDDD0006EF5B2 /* FPBiz1SubView.swift in Sources */,
 				9BAADE8226B29832006EF5B2 /* FPBiz3ViewModel.swift in Sources */,
+				9BAADE8E26B2B33B006EF5B2 /* FPRouteRegManager.swift in Sources */,
 				9BAADE8326B29832006EF5B2 /* FPBiz3ViewController.swift in Sources */,
 				9BAADE7626B297AF006EF5B2 /* FPBiz2ViewController.swift in Sources */,
+				9BAADE8726B29EFC006EF5B2 /* FPRoutePlugInManager.swift in Sources */,
 				9BAADE4E26B11306006EF5B2 /* FPBaseResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -585,6 +620,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9BAADE0526AEA9A4006EF5B2 /* SwiftMVVMTests.swift in Sources */,
+				9BAADE8A26B2A7E1006EF5B2 /* FPRoute.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

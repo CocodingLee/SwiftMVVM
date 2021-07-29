@@ -9,6 +9,9 @@ import Foundation
 
 class FPBiz1ViewModel: FPBaseViewModel
 {
+    // Combine
+    // RxSwift
+    // LiveData
     private(set) var model = FPLiveData<FPBiz1Model?>()
     private(set) var error = FPLiveData<FPBaseError?>()
     
