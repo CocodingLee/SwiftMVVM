@@ -10,7 +10,7 @@ import UIKit
 class View: UIView {
     let dispodeBag = FPDisposedBag()
     var liveData: FPLiveData<Bool>?
-
+    
     func configure1() {
         liveData?.add(observer: self){ [weak self] wvalue in
             guard let self = self else { return }
@@ -36,12 +36,18 @@ class View: UIView {
 class ViewController: FPBaseViewController {
 
     let dispodeBag = FPDisposedBag()
+    let liveData = FPLiveData<Bool>()
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        setupNavigationBar(withTitle: "LiveData", accessibilityId: "acc_dd_xx")
+        self.navigationTitle = "首页"
+        self.accessibilityId = "dsddd"
         
-        let liveData = FPLiveData<Bool>()
+        super.viewDidLoad()
+    }
+    
+    
+    override func bindViewModel() -> Void {
+        
         let view1 = View()
         view1.tag = 1
         view1.liveData = liveData
@@ -53,16 +59,24 @@ class ViewController: FPBaseViewController {
         view2.liveData = liveData
         view2.configure3()
 
-        liveData.publish(value: true)
-
         print(">>>>>>>> Async Request. Now:", Date())
-        DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
-            liveData.publish(value: false)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 4) { [weak self] in
+            self?.liveData.publish(value: false)
             print(">>>>>>>> Done. Now:", Date())
         }
 
         print("<<<<<<<<<< Remove all observers from View 2")
         liveData.remove(observer: view2)
+        
+        liveData.publish(value: true)
+    }
+    
+    override func setupSubViews() -> Void {
+        
+    }
+    
+    override func fetchDataFromServer() -> Void {
+        
     }
 }
 

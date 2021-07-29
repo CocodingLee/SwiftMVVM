@@ -21,14 +21,14 @@ class FPBaseViewController: UIViewController
         
         // TODO: navigationItem待完善，使用mobileX的API
         titleLabel.text = withTitle
-        titleLabel.font = UIFont.systemFont(ofSize: 15)
+        titleLabel.font = UIFont.systemFont(ofSize: 20)
         titleLabel.textColor = UIColor.darkGray
         titleLabel.accessibilityIdentifier = accessibilityId
         
         navigationItem.titleView = titleLabel
         
         // TODO: navigationBar待完善，使用mobileX的API
-        navigationController?.navigationBar.barTintColor = UIColor.systemGreen
+        navigationController?.navigationBar.barTintColor = UIColor.white
         navigationController?.navigationBar.tintColor = UIColor.black
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.darkGray]
         
@@ -47,6 +47,9 @@ class FPBaseViewController: UIViewController
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // 导航栏
+        self.view.backgroundColor = UIColor.white
+        
         // setup navigation
         setupNavigationBar(withTitle: self.navigationTitle ?? ""
                            , accessibilityId: self.accessibilityId ?? "")
