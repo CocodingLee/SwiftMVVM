@@ -13,7 +13,7 @@ protocol FPRouteRegTreeDelegate
     func regWithDomain (domain: String
                         , path: String
                         , param: [String: Any]
-                        , completion: (FPRouteDecision , FPRouteError) -> Void)
+                        , completion: (FPRouteDecision , FPNSError?) -> Void)
 }
 
 class FPRouteRegTree

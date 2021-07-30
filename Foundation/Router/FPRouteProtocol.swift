@@ -7,6 +7,10 @@
 
 import Foundation
 
+/// route to static type
+public typealias FPRouteInputParams = [String: Any]?
+public typealias FPRoutePCompletion = (FPRouteInputParams , Error?) -> Void
+
 // 当前路由业务类型值
 public enum FPRouteDecision: Int , CaseIterable
 {
@@ -14,13 +18,15 @@ public enum FPRouteDecision: Int , CaseIterable
     case FPRouteDecisionAllow
 };
 
-public enum FPRouteError: Error {
-    case FPRouteErrorNone
+
+public enum FPRouteErrorCode: Int , CaseIterable {
+    case FPRouteErrorNone = 0
     case FPRouteErrorNoRegs
     
     //
     case FPRouteErrorNotFindPlugin
 }
+
 
 @objc public protocol FBRouteBaseProtocol {
     static var supportedDomain: String { get }
@@ -33,19 +39,35 @@ public enum FPRouteError: Error {
     static var supportedPath: [String]  { get }
     
     // instance of route object
-    init (params: [String: Any]?)
-    
+    init (params: FPRouteInputParams)
 }
 
-/// route to static type
 @objc public protocol FBRouteClassProtocol: FBRouteBaseProtocol
 {
     static func routeFrom(url: URL
                           , path: String
-                          , params: [String: Any]?
-                          , completion:([String: Any]? , Error) -> Void )
+                          , params: FPRouteInputParams
+                          , completion: FPRoutePCompletion) -> Bool
     
     static func routeTo(path: String
-                        , params:[String: Any]
-                        , completion:([String: Any]? , Error) -> Void)
+                        , params: FPRouteInputParams
+                        , completion: FPRoutePCompletion) -> Bool
+}
+
+extension FBRouteClassProtocol
+{
+    static func routeFrom(url: URL
+                          , path: String
+                          , params: FPRouteInputParams
+                          , completion: FPRoutePCompletion ) -> Bool
+    {
+        return false
+    }
+    
+    static func routeTo(path: String
+                        , params: FPRouteInputParams
+                        , completion: FPRoutePCompletion)  -> Bool
+    {
+        return false
+    }
 }

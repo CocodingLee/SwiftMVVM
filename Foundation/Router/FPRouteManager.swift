@@ -31,8 +31,7 @@ public class FPRouteManager
     /// - Parameters:
     ///   - url: url
     ///   - completion: callback
-    func open(with url: URL
-              , completion: ([String: Any] , FPRouteError) -> Void)
+    func open(with url: URL, completion: FPRoutePCompletion)
     {
         self.open(with: url
                   , addition: nil
@@ -47,8 +46,8 @@ public class FPRouteManager
     ///   - completion: callback
     func open(with domain: String
               , path: String
-              , param: [String: Any]?
-              , completion: (FPRouteDecision , FPRouteError) -> Void)
+              , param: FPRouteInputParams
+              , completion: FPRoutePCompletion)
     {
         
     }
@@ -59,8 +58,8 @@ public class FPRouteManager
     ///   - addition: addition params
     ///   - completion: callback
     func open(with url: URL
-              , addition: [String: Any]?
-              , completion: ([String: Any] , FPRouteError) -> Void) {
+              , addition: FPRouteInputParams
+              , completion: FPRoutePCompletion) {
         
     }
     
@@ -72,16 +71,16 @@ public class FPRouteManager
     ///   - completion: callback
     func ping(with domain: String
               , path: String
-              , param: [String: Any]?
-              , completion: (FPRouteDecision , FPRouteError) -> Void) {
+              , param: FPRouteInputParams
+              , completion: FPRoutePCompletion) {
         
     }
     
     private func openScheme(with scheme: String
-                           , domain: String
-                           , path: String
-                           , param: [String: Any]?
-                           , completion: ([String: Any]? , FPRouteError) -> Void)
+                            , domain: String
+                            , path: String
+                            , param: FPRouteInputParams
+                            , completion: FPRoutePCompletion)
     {
         let plugin: AnyClass? = self.pluginManager?.pluginWith(domain: domain, path: path)
         if let cls = plugin {
@@ -104,7 +103,9 @@ public class FPRouteManager
                 
             }
         } else {
-            completion(nil , .FPRouteErrorNotFindPlugin)
+            let err = FPErrorCreate(code: FPRouteErrorCode.FPRouteErrorNotFindPlugin.rawValue
+                                    , msg: "not find plugin")
+            completion(nil , err)
         }
     }
     
@@ -114,54 +115,62 @@ public class FPRouteManager
                                 , domain: String
                                 , path: String
                                 , params:[String:Any]?
-                                , completion: ([String: Any] , FPRouteError) -> Void)
+                                , completion: FPRoutePCompletion)
     {
-//        NSString *routeString = [NSString stringWithFormat:@"%@://%@/%@", scheme ?: GPRouteURLScheme, domain, path];
-//        NSURL *routeURL = [NSURL URLWithString:routeString];
-//
-//        NSString *toPathSelString = [NSString stringWithFormat:@"route%@WithURL:params:completion:",[self parsePathToSignature:path]];
-//        SEL toPathSel = NSSelectorFromString(toPathSelString);
-//
-//        NSString *fromPathSelString = [NSString stringWithFormat:@"routeFromURL:path:params:completion:"];
-//        SEL fromPathSel = NSSelectorFromString(fromPathSelString);
-//
-//        PluginCompletion pluginCompletion = ^(NSDictionary *ret, NSError *error) {
-//            if (completion) {
-//                completion(ret, error);
-//            }
-//        };
-//
-//        if (class_getClassMethod(plugin, toPathSel)) {
-//            ((void (*)(id, SEL, NSURL *, NSDictionary *, PluginCompletion))objc_msgSend)(plugin, toPathSel, routeURL, params, pluginCompletion);
-//        } else if (class_getClassMethod(plugin, fromPathSel)) {
-//            ((void (*)(id, SEL, NSURL *, NSString *, NSDictionary *, PluginCompletion))objc_msgSend)(plugin, fromPathSel, routeURL,
-//                                                                                                     path, params, pluginCompletion);
-//        } else if ([plugin instancesRespondToSelector:@selector(initWithParams:)]){
-//            SEL init = NSSelectorFromString(@"initWithParams:");
-//            id instance = [plugin alloc];
-//
-//            NSMutableDictionary *initParams = params ? [params mutableCopy] : [NSMutableDictionary new];
-//            if (domain) {
-//                initParams[GPRouteDomainKey] = domain;
-//            }
-//            if (path) {
-//                initParams[GPRoutePathKey] = path;
-//            }
-//            initParams[GPRouteURLKey] = routeURL;
-//
-//            instance = ((id (*)(id, SEL, NSDictionary *))objc_msgSend)(instance, init, initParams);
-//            pluginCompletion(@{ GPRouteTargetKey : instance }, nil);
-//        } else {
-//            if (completion) {
-//                NSString *msg = [NSString stringWithFormat:@"Plugin not implemented method:%@", toPathSelString];
-//                NSError *error = [NSError errorWithDomain:GPRouteErrorDomain code:-1 userInfo:@{ NSLocalizedDescriptionKey : msg }];
-//                completion(nil, error);
-//            }
-//        }
+        //        NSString *routeString = [NSString stringWithFormat:@"%@://%@/%@", scheme ?: GPRouteURLScheme, domain, path];
+        //        NSURL *routeURL = [NSURL URLWithString:routeString];
+        //
+        //        NSString *toPathSelString = [NSString stringWithFormat:@"route%@WithURL:params:completion:",[self parsePathToSignature:path]];
+        //        SEL toPathSel = NSSelectorFromString(toPathSelString);
+        //
+        //        NSString *fromPathSelString = [NSString stringWithFormat:@"routeFromURL:path:params:completion:"];
+        //        SEL fromPathSel = NSSelectorFromString(fromPathSelString);
+        //
+        //        PluginCompletion pluginCompletion = ^(NSDictionary *ret, NSError *error) {
+        //            if (completion) {
+        //                completion(ret, error);
+        //            }
+        //        };
+        //
+        //        if (class_getClassMethod(plugin, toPathSel)) {
+        //            ((void (*)(id, SEL, NSURL *, NSDictionary *, PluginCompletion))objc_msgSend)(plugin, toPathSel, routeURL, params, pluginCompletion);
+        //        } else if (class_getClassMethod(plugin, fromPathSel)) {
+        //            ((void (*)(id, SEL, NSURL *, NSString *, NSDictionary *, PluginCompletion))objc_msgSend)(plugin, fromPathSel, routeURL,
+        //                                                                                                     path, params, pluginCompletion);
+        //        } else if ([plugin instancesRespondToSelector:@selector(initWithParams:)]){
+        //            SEL init = NSSelectorFromString(@"initWithParams:");
+        //            id instance = [plugin alloc];
+        //
+        //            NSMutableDictionary *initParams = params ? [params mutableCopy] : [NSMutableDictionary new];
+        //            if (domain) {
+        //                initParams[GPRouteDomainKey] = domain;
+        //            }
+        //            if (path) {
+        //                initParams[GPRoutePathKey] = path;
+        //            }
+        //            initParams[GPRouteURLKey] = routeURL;
+        //
+        //            instance = ((id (*)(id, SEL, NSDictionary *))objc_msgSend)(instance, init, initParams);
+        //            pluginCompletion(@{ GPRouteTargetKey : instance }, nil);
+        //        } else {
+        //            if (completion) {
+        //                NSString *msg = [NSString stringWithFormat:@"Plugin not implemented method:%@", toPathSelString];
+        //                NSError *error = [NSError errorWithDomain:GPRouteErrorDomain code:-1 userInfo:@{ NSLocalizedDescriptionKey : msg }];
+        //                completion(nil, error);
+        //            }
+        //        }
         
         
         //
         let routeString = scheme + "//" + domain + "/" + path
         var url = URL.init(string: routeString)
+        if class_conformsToProtocol(plugin, FBRouteClassProtocol.self) {
+            var handled = plugin.routeTo(path: path, params: params, completion:completion)
+            
+            
+            
+        } else if class_conformsToProtocol(plugin, FBRouteInstanceProtocol.self) {
+            
+        }
     }
 }

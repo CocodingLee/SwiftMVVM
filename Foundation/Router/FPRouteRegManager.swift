@@ -10,6 +10,7 @@ import Foundation
 class FPRouteRegManager
 {
     lazy private var rootReg: FPRouteRegTree = FPRouteRegTree()
+    typealias FPRouteRegCompletion = (FPRouteDecision , Error?) -> Void
     
     /// add rules
     /// - Parameters:
@@ -64,14 +65,14 @@ class FPRouteRegManager
     ///   - completion: callback
     func checkRegs(with domain: String
                    , path: String
-                   , params: [String: Any]?
-                   , completion:(FPRouteDecision , FPRouteError) -> Void)
+                   , params: FPRouteInputParams
+                   , completion: FPRouteRegCompletion)
     {
         let regs = self.matchRegs(with:domain, path: path);
         if let r = regs {
             
             if r.count == 0 {
-                completion(.FPRouteDecisionAllow , .FPRouteErrorNone)
+                completion(.FPRouteDecisionAllow , nil)
             } else {
                 self .checkRegs( with: domain
                                  , path: path
@@ -80,7 +81,8 @@ class FPRouteRegManager
             }
             
         } else {
-            completion(.FPRouteDecisionAllow , .FPRouteErrorNoRegs)
+            let err = FPErrorCreate(code: FPRouteErrorCode.FPRouteErrorNoRegs.rawValue , msg: "")
+            completion(.FPRouteDecisionAllow , err)
         }
     }
     
@@ -139,7 +141,7 @@ class FPRouteRegManager
                            , domain: String
                            , path: String
                            , params: [String: Any]
-                           , completion: (FPRouteDecision , FPRouteError) -> Void)
+                           , completion: FPRouteRegCompletion)
     {
         if regs.count > 0 {
             var nextRegs = regs
@@ -157,7 +159,7 @@ class FPRouteRegManager
                     
                 case .FPRouteDecisionAllow:
                     if (nextRegs.count == 0) {
-                        completion(.FPRouteDecisionAllow, .FPRouteErrorNone);
+                        completion(.FPRouteDecisionAllow, nil);
                     } else {
                         self?.checkRegs(with: nextRegs
                                         , domain: domain
