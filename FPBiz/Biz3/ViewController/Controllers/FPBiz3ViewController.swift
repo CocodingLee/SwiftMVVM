@@ -47,7 +47,7 @@ final class FPBiz3ViewController: FPBaseViewController
 }
 
 // MARK: Route by FBRouteProtocol
-extension FPBiz3ViewController: FBRouteProtocol
+extension FPBiz3ViewController: FBRouteInstanceProtocol
 {
     static var supportedDomain: String {
         FPRouteDomain.url.rawValue
@@ -57,7 +57,7 @@ extension FPBiz3ViewController: FBRouteProtocol
         ["path.fp.biz3"]
     }
     
-    convenience init(params: Dictionary<String, Any>) {
+    convenience init(params: [String: Any]?) {
         self.init()
     }
 }

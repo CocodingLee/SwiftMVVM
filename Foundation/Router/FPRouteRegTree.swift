@@ -7,17 +7,6 @@
 
 import Foundation
 
-// 当前路由业务类型值
-enum FPRouteDecision: Int , CaseIterable
-{
-    case FPRouteDecisionDeny  = 0
-    case FPRouteDecisionAllow
-};
-
-enum FPRouteError: Error {
-    case FPRouteErrorNone
-    case FPRouteErrorNoRegs
-}
 
 protocol FPRouteRegTreeDelegate
 {

@@ -29,7 +29,7 @@ class FPRoutePlugInManager
      
     private func scanPlugIn()
     {
-        let tmp = FPRuntime.classes(conformToProtocol: FBRouteProtocol.self)
+        let tmp = FPRuntime.classes(conformToProtocol: FBRouteBaseProtocol.self)
         for c in tmp {
             let sd = c.supportedDomain ?? ""
             let domain = sd.lowercased()

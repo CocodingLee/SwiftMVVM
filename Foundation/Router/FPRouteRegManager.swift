@@ -62,22 +62,21 @@ class FPRouteRegManager
     ///   - path: url path
     ///   - params: params
     ///   - completion: callback
-    func checkRegsWithDomain(domain: String
-                             , path: String
-                             , params: [String: Any]
-                             , completion:@escaping (FPRouteDecision , FPRouteError) -> Void)
+    func checkRegs(with domain: String
+                   , path: String
+                   , params: [String: Any]?
+                   , completion:(FPRouteDecision , FPRouteError) -> Void)
     {
-        let regs = self.matchRegs(with: domain, path: path);
+        let regs = self.matchRegs(with:domain, path: path);
         if let r = regs {
             
             if r.count == 0 {
                 completion(.FPRouteDecisionAllow , .FPRouteErrorNone)
             } else {
-                self .checkRegs(with: r
-                                , domain: domain
-                                , path: path
-                                , params: params
-                                , completion: completion)
+                self .checkRegs( with: domain
+                                 , path: path
+                                 , params: params
+                                 , completion: completion)
             }
             
         } else {

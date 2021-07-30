@@ -64,9 +64,9 @@ class FPRoute: XCTestCase {
         }
         
         // check
-        regManager.checkRegsWithDomain(domain: "domain.fp.biz"
-                                       , path: "path.fp.biz1"
-                                       , params: [:]) { decision, error in
+        regManager.checkRegs(with: "domain.fp.biz"
+                             , path: "path.fp.biz1"
+                             , params: [:]) { decision, error in
             XCTAssertTrue(decision == .FPRouteDecisionAllow
                             && error == .FPRouteErrorNone
                           ,  "FPRouteRegTreeDelegate handled")

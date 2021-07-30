@@ -7,29 +7,45 @@
 
 import Foundation
 
-@objc protocol FBRouteProtocol {
+// 当前路由业务类型值
+public enum FPRouteDecision: Int , CaseIterable
+{
+    case FPRouteDecisionDeny  = 0
+    case FPRouteDecisionAllow
+};
+
+public enum FPRouteError: Error {
+    case FPRouteErrorNone
+    case FPRouteErrorNoRegs
     
-    /**
-     业务域
+    //
+    case FPRouteErrorNotFindPlugin
+}
 
-     @return 当前名称
-     */
+@objc public protocol FBRouteBaseProtocol {
     static var supportedDomain: String { get }
+}
 
-    /**
-     如果不实现这个方法，则默认添加一个Path为*的插件，
-     当某个跳转的path未能命中该domain下的任一个插件时，会寻找*插件
-
-     @return 当前支持的路径，业务分支
-     */
-    //+ (NSArray *)supportedPath;
+/// route to instace type
+@objc public protocol FBRouteInstanceProtocol: FBRouteBaseProtocol
+{
+    // optional function
     static var supportedPath: [String]  { get }
+    
+    // instance of route object
+    init (params: [String: Any]?)
+    
+}
 
-    /**
-     初始化
-
-     @param params 参数
-     @return 当前实例
-     */
-    init(params: Dictionary<String, Any>)
+/// route to static type
+@objc public protocol FBRouteClassProtocol: FBRouteBaseProtocol
+{
+    static func routeFrom(url: URL
+                          , path: String
+                          , params: [String: Any]?
+                          , completion:([String: Any]? , Error) -> Void )
+    
+    static func routeTo(path: String
+                        , params:[String: Any]
+                        , completion:([String: Any]? , Error) -> Void)
 }
