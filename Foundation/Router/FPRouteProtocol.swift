@@ -25,6 +25,7 @@ public enum FPRouteErrorCode: Int , CaseIterable {
     
     //
     case FPRouteErrorNotFindPlugin
+    case FPRouteErrorURLError
 }
 
 

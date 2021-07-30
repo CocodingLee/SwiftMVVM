@@ -26,6 +26,15 @@ class FPErrorImpl: FPNSError
     var errorUserInfo: [String : Any] = [NSLocalizedDescriptionKey: "None"]
 }
 
+// error
+func FPError2BaseError(with error: Error) -> FPBaseError {
+    if let err = error as? FPBaseError {
+        return err
+    } else {
+        return .clientUnExpectError(error)
+    }
+}
+
 public func FPErrorCreate(code: Int , msg: String) -> Error
 {
     let e = FPErrorImpl()

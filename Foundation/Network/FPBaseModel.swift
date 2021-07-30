@@ -34,7 +34,7 @@ class FPNetworkModel {
         } catch {
             // callback
             FPAsyncOnMain {
-                let err = FPError(with: error)
+                let err = FPError2BaseError(with: error)
                 completion(request, .failure(err))
             }
         }
@@ -55,7 +55,7 @@ class FPNetworkModel {
                             let r = try result.parse(data: data!)
                             result = .success(r)
                         } catch {
-                            let err = FPError(with: error)
+                            let err = FPError2BaseError(with: error)
                             completion(request, .failure(err))
                         }
                         

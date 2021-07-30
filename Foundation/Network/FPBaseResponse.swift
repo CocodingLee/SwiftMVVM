@@ -38,14 +38,6 @@ enum FPBaseError: Error {
     case clientUnExpectError(Error)
 }
 
-func FPError(with error: Error) -> FPBaseError {
-    if let err = error as? FPBaseError {
-        return err
-    } else {
-        return .clientUnExpectError(error)
-    }
-}
-
 enum FPNetworkResult<Resp: Decodable , Failure> where Failure: Error {
     case success(Resp)
     // TODO:String需要改成结构体
