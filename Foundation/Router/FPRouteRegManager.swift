@@ -39,9 +39,11 @@ class FPRouteRegManager
         
         // domain
         var leafNode = self.rootReg
-        while treePath.count > 0 , let subRegTree = leafNode.children?[domain] {
+        var key = treePath.first ?? ""
+        while treePath.count > 0 , let subRegTree = leafNode.children?[key] {
             leafNode = subRegTree
             treePath.remove(at: 0)
+            key = treePath.first ?? ""
         }
         
         var regs = leafNode.regs
@@ -66,19 +68,20 @@ class FPRouteRegManager
                              , completion:@escaping (FPRouteDecision , FPRouteError) -> Void)
     {
         let regs = self.matchRegs(with: domain, path: path);
-        if regs?.count == 0 {
-            completion(.FPRouteDecisionAllow , .FPRouteErrorNone)
-        } else {
+        if let r = regs {
             
-            if let r = regs , r.count > 0 {
+            if r.count == 0 {
+                completion(.FPRouteDecisionAllow , .FPRouteErrorNone)
+            } else {
                 self .checkRegs(with: r
                                 , domain: domain
                                 , path: path
                                 , params: params
                                 , completion: completion)
-            } else {
-                completion(.FPRouteDecisionAllow , .FPRouteErrorNoRegs)
             }
+            
+        } else {
+            completion(.FPRouteDecisionAllow , .FPRouteErrorNoRegs)
         }
     }
     

@@ -63,8 +63,15 @@ extension FPBiz1ViewController: FBRouteProtocol
 }
 
 // empty view
-extension FPBiz1ViewController
+extension FPBiz1ViewController:FPRouteRegTreeDelegate
 {
+    func regWithDomain(domain: String
+                       , path: String
+                       , param: [String : Any]
+                       , completion: (FPRouteDecision, FPRouteError) -> Void) {
+        completion(.FPRouteDecisionAllow , .FPRouteErrorNone)
+    }
+    
     
     
     

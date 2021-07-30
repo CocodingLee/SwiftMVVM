@@ -40,4 +40,37 @@ class FPRoute: XCTestCase {
         
     }
     
+    func testFPRouteRegManager() {
+        let regManager = FPRouteRegManager()
+        let vc1 = FPBiz1ViewController()
+        
+        // add
+        let domain = "domain.fp.biz"
+        let path = "path.fp.biz1"
+        
+        regManager.addReg(reg: vc1, domain: domain, path: path)
+        
+        // mach
+        let regs = regManager.matchRegs(with: domain, path: "fp.biz1")
+        if let r = regs , r.count > 0 {
+            let route: FPRouteRegTreeDelegate = r.first!
+            route.regWithDomain(domain: domain
+                                , path: path
+                                , param: [:]) { decision, error in
+                XCTAssertTrue(decision == .FPRouteDecisionAllow
+                                && error == .FPRouteErrorNone
+                              ,  "FPRouteRegTreeDelegate handled")
+            }
+        }
+        
+        // check
+        regManager.checkRegsWithDomain(domain: "domain.fp.biz"
+                                       , path: "path.fp.biz1"
+                                       , params: [:]) { decision, error in
+            XCTAssertTrue(decision == .FPRouteDecisionAllow
+                            && error == .FPRouteErrorNone
+                          ,  "FPRouteRegTreeDelegate handled")
+        }
+    }
+    
 }
