@@ -7,7 +7,8 @@
 
 import Foundation
 
-public protocol FPNSError : Error {
+public protocol FPNSError : Error
+{
 
     /// The domain of the error.
     static var errorDomain: String { get }
