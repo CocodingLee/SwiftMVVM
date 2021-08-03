@@ -11,6 +11,7 @@ enum FPNetworkErrorCode: Int , CaseIterable
 {
     case clientNone = 0
     case clientNetworkError
+    case clientHTTPConvertError
     
     
     case serverNone = 20000

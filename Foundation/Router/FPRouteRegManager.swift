@@ -74,10 +74,11 @@ class FPRouteRegManager
             if r.count == 0 {
                 completion(.FPRouteDecisionAllow , nil)
             } else {
-                self .checkRegs( with: domain
-                                 , path: path
-                                 , params: params
-                                 , completion: completion)
+                self.checkRegs( with: regs
+                                , domain: domain
+                                , path: path
+                                , params: params
+                                , completion: completion)
             }
             
         } else {
@@ -137,20 +138,20 @@ class FPRouteRegManager
         }
     }
     
-    private func checkRegs(with regs: [FPRouteRegTreeDelegate]
+    private func checkRegs(with regs: [FPRouteRegTreeDelegate]?
                            , domain: String
                            , path: String
-                           , params: [String: Any]
+                           , params: [String: Any]?
                            , completion: FPRouteRegCompletion)
     {
-        if regs.count > 0 {
-            var nextRegs = regs
+        if let r = regs , r.count > 0 {
+            var nextRegs = r
             nextRegs.remove(at: 0)
             
-            let reg = regs.first
+            let reg = r.first
             reg?.regWithDomain(domain: domain
                                , path: path
-                               , param: params)  {
+                               , param: params) {
                 
                 [weak self] decision, error in
                 switch (decision) {

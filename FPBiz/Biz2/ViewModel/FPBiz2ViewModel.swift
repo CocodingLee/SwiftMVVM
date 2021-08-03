@@ -41,8 +41,8 @@ class FPBiz2ForXXViewModel: FPBaseViewModel
         let req = FPHTTPsPostRequest()
         req.prefixPath = ""
         req.subPath = ""
-        req.parameters = ["name":i1 , "name":i2]
-        req.queryParameters = ["name":"n1" , "name":"n2"]
+        req.parameters = ["name1":i1 , "name2":i2]
+        req.queryParameters = ["name1":"n1" , "name2":"n2"]
         
         // 网络请求
         FPNetworkModel.fetch(request: req , resposeType: FPBiz1Model.self) { [weak self] req, result in

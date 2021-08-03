@@ -51,24 +51,24 @@ class FPRoute: XCTestCase {
         regManager.addReg(reg: vc1, domain: domain, path: path)
         
         // mach
-        let regs = regManager.matchRegs(with: domain, path: "fp.biz1")
+        let regs = regManager.matchRegs(with: domain, path: path)
         if let r = regs , r.count > 0 {
             let route: FPRouteRegTreeDelegate = r.first!
             route.regWithDomain(domain: domain
                                 , path: path
                                 , param: [:]) { decision, error in
                 XCTAssertTrue(decision == .FPRouteDecisionAllow
-                                && error == .FPRouteErrorNone
+                                && error == nil
                               ,  "FPRouteRegTreeDelegate handled")
             }
         }
         
         // check
-        regManager.checkRegs(with: "domain.fp.biz"
-                             , path: "path.fp.biz1"
+        regManager.checkRegs(with: domain
+                             , path: path
                              , params: [:]) { decision, error in
             XCTAssertTrue(decision == .FPRouteDecisionAllow
-                            && error == .FPRouteErrorNone
+                            && error == nil
                           ,  "FPRouteRegTreeDelegate handled")
         }
     }

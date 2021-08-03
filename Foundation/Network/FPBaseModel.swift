@@ -9,7 +9,10 @@ import Foundation
 
 class FPNetworkModel {
     
+    //
     // TODO:集成到mobileX
+    // 线程安全，非主线程做解析
+    //
     // http base
     class func fetch<Req:FPBaseRequest, Resp:Decodable>(request: Req,
                                                         resposeType: Resp.Type,
@@ -35,10 +38,9 @@ class FPNetworkModel {
         } catch {
             // callback
             FPAsyncOnMain {
-                
-                // todo - liyanwei
-                //let err = FPError2BaseError(with: error)
-                //completion(request, .failure(err))
+                let err = FPErrorFactory(code: FPNetworkErrorCode.clientHTTPConvertError.rawValue
+                                        , msg: "http convert error")
+                completion(request, .failure(err))
             }
         }
         

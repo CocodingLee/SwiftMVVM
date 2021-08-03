@@ -67,7 +67,7 @@ extension FPBiz1ViewController:FPRouteRegTreeDelegate
 {
     func regWithDomain(domain: String
                        , path: String
-                       , param: [String : Any]
+                       , param: [String : Any]?
                        , completion: (FPRouteDecision, FPNSError?) -> Void) {
         completion(.FPRouteDecisionAllow , nil)
     }
