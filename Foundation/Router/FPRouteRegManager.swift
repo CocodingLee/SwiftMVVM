@@ -81,7 +81,7 @@ class FPRouteRegManager
             }
             
         } else {
-            let err = FPErrorCreate(code: FPRouteErrorCode.FPRouteErrorNoRegs.rawValue , msg: "")
+            let err = FPErrorFactory(code: FPRouteErrorCode.FPRouteErrorNoRegs.rawValue , msg: "")
             completion(.FPRouteDecisionAllow , err)
         }
     }

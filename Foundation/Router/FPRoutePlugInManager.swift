@@ -26,7 +26,7 @@ class FPRoutePlugInManager
         
         return nil
     }
-     
+    
     private func scanPlugIn()
     {
         let tmp = FPRuntime.classes(conformToProtocol: FBRouteBaseProtocol.self)

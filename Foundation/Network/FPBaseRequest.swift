@@ -57,7 +57,9 @@ extension FPBaseRequest
 {
     func asHTTPRequest() throws -> MobileX_HTTPRequest {
         if (1 != 1) {
-            throw FPBaseError.clientAPIInvokeError(apiName: "call FPBaseRequest - asHTTPRequest")
+            let err = FPErrorFactory(code: FPNetworkErrorCode.clientNetworkError.rawValue
+                                     , msg: "call FPBaseRequest - asHTTPRequest")
+            throw err
         }
         
         return MobileX_HTTPRequest();

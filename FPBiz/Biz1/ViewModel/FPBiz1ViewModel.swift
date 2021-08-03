@@ -13,7 +13,7 @@ class FPBiz1ViewModel: FPBaseViewModel
     // RxSwift
     // LiveData
     private(set) var model = FPLiveData<FPBiz1Model?>()
-    private(set) var error = FPLiveData<FPBaseError?>()
+    private(set) var error = FPLiveData<Error?>()
     
     func load(i1: String , i2: String) -> Void {
         let req = FPHTTPsPostRequest()
@@ -38,7 +38,7 @@ class FPBiz1ViewModel: FPBaseViewModel
 class FPBiz1ForXXViewModel: FPBaseViewModel
 {
     private(set) var model = FPLiveData<FPBiz1Model?>()
-    private(set) var error = FPLiveData<FPBaseError?>()
+    private(set) var error = FPLiveData<Error?>()
     
     func load(i1: String , i2: String) -> Void {
         let req = FPHTTPsPostRequest()

@@ -7,40 +7,22 @@
 
 import Foundation
 
-enum FPErrorCode: Int , CaseIterable {
+enum FPNetworkErrorCode: Int , CaseIterable
+{
     case clientNone = 0
+    case clientNetworkError
+    
     
     case serverNone = 20000
+    // server no content resp
     case serverRespNoContent
+    // server error
+    case serverRespBizError
 }
 
-//
-// UI will updata by the FPBaseError
-//
-enum FPBaseError: Error {
-    // default value
-    case errorNone
-    // network server error
-    case networkServerError(code:Int , msg:String)
-    // network client error
-    case networkClientError(code:FPErrorCode , msg:String)
-    
-    
-    // network no content
-    case networkNoContent
-    // network no network error
-    case networkNotFound
-    
-    
-    // API error
-    case clientAPIInvokeError(apiName: String)
-    // unexpect
-    case clientUnExpectError(Error)
-}
-
-enum FPNetworkResult<Resp: Decodable , Failure> where Failure: Error {
+enum FPNetworkResult<Resp: Decodable , Failure>
+{
     case success(Resp)
-    // TODO:String需要改成结构体
     case failure(Failure)
     
     //

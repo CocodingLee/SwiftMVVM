@@ -10,7 +10,7 @@ import Foundation
 class FPBiz3ViewModel: FPBaseViewModel
 {
     private(set) var model = FPLiveData<FPBiz1Model?>()
-    private(set) var error = FPLiveData<FPBaseError?>()
+    private(set) var error = FPLiveData<Error?>()
     
     func load(i1: String , i2: String) -> Void {
         let req = FPHTTPsPostRequest()
@@ -35,7 +35,7 @@ class FPBiz3ViewModel: FPBaseViewModel
 class FPBiz3ForXXViewModel: FPBaseViewModel
 {
     private(set) var model = FPLiveData<FPBiz1Model?>()
-    private(set) var error = FPLiveData<FPBaseError?>()
+    private(set) var error = FPLiveData<FPNSError?>()
     
     func load(i1: String , i2: String) -> Void {
         let req = FPHTTPsPostRequest()

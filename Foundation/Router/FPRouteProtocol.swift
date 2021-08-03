@@ -9,7 +9,7 @@ import Foundation
 
 /// route to static type
 public typealias FPRouteInputParams = [String: Any]?
-public typealias FPRoutePCompletion = (FPRouteInputParams , Error?) -> Void
+public typealias FPRouteCompletion  = (FPRouteInputParams , Error?) -> Void
 
 // 当前路由业务类型值
 public enum FPRouteDecision: Int , CaseIterable
@@ -48,11 +48,11 @@ public enum FPRouteErrorCode: Int , CaseIterable {
     static func routeFrom(url: URL
                           , path: String
                           , params: FPRouteInputParams
-                          , completion: FPRoutePCompletion) -> Bool
+                          , completion: FPRouteCompletion) -> Bool
     
     static func routeTo(path: String
                         , params: FPRouteInputParams
-                        , completion: FPRoutePCompletion) -> Bool
+                        , completion: FPRouteCompletion) -> Bool
 }
 
 extension FBRouteClassProtocol
@@ -60,14 +60,14 @@ extension FBRouteClassProtocol
     static func routeFrom(url: URL
                           , path: String
                           , params: FPRouteInputParams
-                          , completion: FPRoutePCompletion ) -> Bool
+                          , completion: FPRouteCompletion ) -> Bool
     {
         return false
     }
     
     static func routeTo(path: String
                         , params: FPRouteInputParams
-                        , completion: FPRoutePCompletion)  -> Bool
+                        , completion: FPRouteCompletion)  -> Bool
     {
         return false
     }

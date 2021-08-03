@@ -7,9 +7,11 @@
 
 import Foundation
 
+// domain
+public let FPDOMAIN = "FPErrorDomain"
+
 public protocol FPNSError : Error
 {
-
     /// The domain of the error.
     static var errorDomain: String { get }
 
@@ -22,25 +24,25 @@ public protocol FPNSError : Error
 
 class FPErrorImpl: FPNSError
 {
-    static var errorDomain: String = "FPErrorDomain"
+    static var errorDomain: String = FPDOMAIN
     var errorCode: Int = -1
     var errorUserInfo: [String : Any] = [NSLocalizedDescriptionKey: "None"]
 }
 
-// error
-func FPError2BaseError(with error: Error) -> FPBaseError {
-    if let err = error as? FPBaseError {
-        return err
-    } else {
-        return .clientUnExpectError(error)
-    }
-}
-
-public func FPErrorCreate(code: Int , msg: String) -> Error
+public func FPErrorFactory(code: Int , msg: String?) -> FPNSError
 {
     let e = FPErrorImpl()
     e.errorCode = code
-    e.errorUserInfo[NSLocalizedDescriptionKey] = msg
+    e.errorUserInfo[NSLocalizedDescriptionKey] = msg ?? ""
+    
+    return e
+}
+
+public func FPErrorFactory(code: Int , msg: String? , domain: String = FPDOMAIN) -> FPNSError
+{
+    let e = FPErrorImpl()
+    e.errorCode = code
+    e.errorUserInfo[NSLocalizedDescriptionKey] = msg ?? ""
     
     return e
 }

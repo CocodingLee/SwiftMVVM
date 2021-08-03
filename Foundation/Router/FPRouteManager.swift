@@ -32,7 +32,7 @@ public class FPRouteManager
     /// - Parameters:
     ///   - url: url
     ///   - completion: callback
-    func open(with url: URL, completion: FPRoutePCompletion)
+    func open(with url: URL, completion: FPRouteCompletion)
     {
         self.open(with: url
                   , addition: nil
@@ -48,7 +48,7 @@ public class FPRouteManager
     func open(with domain: String
               , path: String
               , param: FPRouteInputParams
-              , completion: FPRoutePCompletion)
+              , completion: FPRouteCompletion)
     {
         self.openScheme(with: nil
                         , domain: domain
@@ -64,7 +64,7 @@ public class FPRouteManager
     ///   - completion: callback
     func open(with url: URL
               , addition: FPRouteInputParams
-              , completion: FPRoutePCompletion)
+              , completion: FPRouteCompletion)
     {
         var path = url.path
         if path.hasPrefix("/") {
@@ -106,7 +106,7 @@ public class FPRouteManager
                             , domain: String
                             , path: String
                             , param: FPRouteInputParams
-                            , completion: FPRoutePCompletion)
+                            , completion: FPRouteCompletion)
     {
         let plugin: AnyClass? = self.pluginManager?.pluginWith(domain: domain, path: path)
         if let cls = plugin {
@@ -129,7 +129,7 @@ public class FPRouteManager
                 
             }
         } else {
-            let err = FPErrorCreate(code: FPRouteErrorCode.FPRouteErrorNotFindPlugin.rawValue
+            let err = FPErrorFactory(code: FPRouteErrorCode.FPRouteErrorNotFindPlugin.rawValue
                                     , msg: "not find plugin")
             completion(nil , err)
         }
@@ -140,7 +140,7 @@ public class FPRouteManager
                                 , domain: String
                                 , path: String
                                 , params: FPRouteInputParams
-                                , completion: FPRoutePCompletion)
+                                , completion: FPRouteCompletion)
     {
         // flag
         var handleInstance = false
@@ -173,7 +173,7 @@ public class FPRouteManager
         } else {
             let s = scheme ?? ""
             let msg = "Plugin not implemented method:" + s + "//:" + domain + "/" + path
-            let err = FPErrorCreate(code: FPRouteErrorCode.FPRouteErrorNotFindPlugin.rawValue, msg: msg)
+            let err = FPErrorFactory(code: FPRouteErrorCode.FPRouteErrorNotFindPlugin.rawValue, msg: msg)
             completion(nil , err)
         }
     }
@@ -183,7 +183,7 @@ public class FPRouteManager
                                   , domain: String
                                   , path: String
                                   , params: FPRouteInputParams
-                                  , completion: FPRoutePCompletion) -> Bool
+                                  , completion: FPRouteCompletion) -> Bool
     {
         let routeString = scheme + "//:" + domain + "/" + path
         let url = URL.init(string: routeString)
@@ -196,7 +196,7 @@ public class FPRouteManager
             return handledRouteFrom
         } else {
             let msg = "url scheme error:" + routeString
-            let err = FPErrorCreate(code: FPRouteErrorCode.FPRouteErrorURLError.rawValue
+            let err = FPErrorFactory(code: FPRouteErrorCode.FPRouteErrorURLError.rawValue
                                     , msg: msg)
             completion(nil , err)
             return true

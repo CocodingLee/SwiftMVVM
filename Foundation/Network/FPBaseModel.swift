@@ -13,7 +13,7 @@ class FPNetworkModel {
     // http base
     class func fetch<Req:FPBaseRequest, Resp:Decodable>(request: Req,
                                                         resposeType: Resp.Type,
-                                                        completion: @escaping (Req , FPNetworkResult<Resp , FPBaseError>) -> Void)
+                                                        completion: @escaping (Req , FPNetworkResult<Resp , FPNSError>) -> Void)
     -> Void {
         
         #if MOCK_HTTP_DATA
@@ -23,6 +23,7 @@ class FPNetworkModel {
         var httpRequest: MobileX_HTTPRequest!
         
         #else
+        
         // 真实网络请求
         let httpClient = MockFPNetwork()
         var httpRequest: MobileX_HTTPRequest!
@@ -34,14 +35,18 @@ class FPNetworkModel {
         } catch {
             // callback
             FPAsyncOnMain {
-                let err = FPError2BaseError(with: error)
-                completion(request, .failure(err))
+                
+                // todo - liyanwei
+                //let err = FPError2BaseError(with: error)
+                //completion(request, .failure(err))
             }
         }
         
         // fetch data
         httpClient.fetch(input: httpRequest) { httpResponse in
-            var result: FPNetworkResult<Resp , FPBaseError> = .failure(FPBaseError.errorNone)
+            
+            let err = FPErrorFactory(code: FPNetworkErrorCode.clientNone.rawValue, msg: "")
+            var result: FPNetworkResult<Resp , FPNSError> = .failure(err)
             var statusCode: Int?
             
             switch httpResponse {
@@ -55,23 +60,31 @@ class FPNetworkModel {
                             let r = try result.parse(data: data!)
                             result = .success(r)
                         } catch {
-                            let err = FPError2BaseError(with: error)
-                            completion(request, .failure(err))
+                            let err = (error as NSError)
+                            let fpError = FPErrorFactory(code: err.code, msg: err.description)
+                            completion(request, .failure(fpError))
                         }
                         
                     } else {
-                        result = .failure(.networkClientError( code: .serverRespNoContent
-                                                               , msg: "server response has no content"))
+                        let err = FPErrorFactory(code: FPNetworkErrorCode.serverRespNoContent.rawValue
+                                                 , msg: "server response has no content")
+                        result = .failure(err)
                     } // if data != nil
                     
                 } else {
-                    result = .failure(.networkServerError( code: statusCode ?? -1
-                                                           , msg: "server response status code error , not in contain"))
+                    let msg = "server response status code error = \(statusCode ?? 0), not in contain"
+                    let err = FPErrorFactory(code: FPNetworkErrorCode.serverRespBizError.rawValue
+                                             , msg: msg)
+                    result = .failure(err)
                 } //  if let sc = statusCode , 200...299 ~= sc
             
             case .failure(let error):
                 let err = (error as NSError)
-                result = .failure(.networkServerError(code:err.code , msg:err.description))
+                
+                let msg = "server response status code error = \(err.code), not in contain ; \(err.description)"
+                let fpError = FPErrorFactory(code: FPNetworkErrorCode.clientNetworkError.rawValue
+                                             , msg: msg)
+                result = .failure(fpError)
             }
             
             // callback
