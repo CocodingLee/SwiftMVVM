@@ -7,12 +7,10 @@
 
 import Foundation
 
-public enum FPRouteKey: String {
-    case FPRouteURLScheme = "fp.route.url.scheme.key"
-    case FPRouteTargetKey = "fp.route.target.key"
-    case FPRouteErrorDomain = "fp.route.error.domain.key"
-    case FPRouteAdditionParam = "fp.route.addtion.params.key"
-}
+let FPRouteURLScheme = "fp.route.url.scheme.key"
+let FPRouteTargetKey = "fp.route.target.key"
+let FPRouteErrorDomain = "fp.route.error.domain.key"
+let FPRouteAdditionParam = "fp.route.addtion.params.key"
 
 public class FPRouteManager
 {
@@ -45,7 +43,7 @@ public class FPRouteManager
     ///   - path: path key , which path want to jump
     ///   - param: input param
     ///   - completion: callback
-    func open(with domain: String
+    func open(withDomain domain: String
               , path: String
               , param: FPRouteInputParams
               , completion: FPRouteCompletion)
@@ -167,7 +165,7 @@ public class FPRouteManager
            , class_conformsToProtocol(plugin, FBRouteInstanceProtocol.self) {
             let cls: FBRouteInstanceProtocol.Type = plugin as! FBRouteInstanceProtocol.Type
             let instance = cls.init(params:params)
-            let key = FPRouteKey.FPRouteTargetKey.rawValue
+            let key = FPRouteTargetKey
             completion([key: instance] , nil)
             
         } else {

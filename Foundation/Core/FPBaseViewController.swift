@@ -10,6 +10,9 @@ import UIKit
 
 class FPBaseViewController: UIViewController
 {
+    // auto create button
+    var autoCreateBackButton = true
+    
     // resource recycling bag
     let bag = FPDisposedBag()
     var navigationTitle: String?
@@ -39,11 +42,14 @@ class FPBaseViewController: UIViewController
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.darkGray]
         
         // TODO: back button待完善，使用mobileX的API
-        let backButton = UIButton(type: .custom)
-        //backButton.setImage(<#T##image: UIImage?##UIImage?#>, for: <#T##UIControl.State#>)
-        backButton.addTarget(self, action: #selector(backButtonAction(button:)), for: .touchUpInside)
-        
-        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backButton)
+        if self.autoCreateBackButton {
+            let backButton = UIButton(type: .custom)
+            let img = UIImage.init(named: "back")
+            backButton.setImage(img, for: .normal)
+            backButton.addTarget(self, action: #selector(backButtonAction(button:)), for: .touchUpInside)
+            
+            navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backButton)
+        }
     }
     
     @objc func backButtonAction(button: UIButton) {

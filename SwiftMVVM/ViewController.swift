@@ -14,6 +14,7 @@ class ViewController: FPBaseViewController , UITableViewDelegate , UITableViewDa
     private lazy var viewModel = ViewModel()
     
     override func viewDidLoad() {
+        self.autoCreateBackButton = false
         self.navigationTitle = "首页"
         self.accessibilityId = "xxx.xxx.xxx"
         
@@ -36,12 +37,15 @@ class ViewController: FPBaseViewController , UITableViewDelegate , UITableViewDa
             tableView.contentInsetAdjustmentBehavior = .never
         }
         
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
+        tableView.register(FPDemoTableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
         
         self.view.addSubview(tableView)
     }
     
     override func bindViewModel() -> Void {
+        // bind vc
+        self.viewModel.weakViewController = self
+        
         self.viewModel.contents.add(observer: self) {[weak self] data in
             // updata UI
             assert(Thread.isMainThread , "pls update UI in main thread")
@@ -78,7 +82,7 @@ extension ViewController
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier)
         if cell == nil {
-            cell = UITableViewCell.init(style: .default, reuseIdentifier: cellReuseIdentifier)
+            cell = FPDemoTableViewCell.init(style: .default, reuseIdentifier: cellReuseIdentifier)
         }
         return cell!
     }
@@ -89,6 +93,27 @@ extension ViewController
         }
         
         return 0
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        100
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if let c = cell as? FPDemoTableViewCell {
+            if let a = self.viewModel.contents.value??.data , a.count > 0 {
+                let item = a[indexPath.row]
+                c.updateViewWith(item: item)
+            }
+            
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let a = self.viewModel.contents.value??.data , a.count > 0 {
+            let item = a[indexPath.row]
+            self.viewModel.tableViewDidSelect(item: item)
+        }
     }
 }
 

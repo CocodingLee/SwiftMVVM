@@ -6,11 +6,14 @@
 //
 
 import Foundation
+import UIKit
 
 class MVVMItem: Decodable
 {
     var name: String?
     var subName: String?
+    var domain: String?
+    var path: String?
 }
 
 class MVVMModel: Decodable
@@ -40,5 +43,18 @@ class ViewModel: FPBaseViewModel
                 self?.error.publish(value: error)
             }
         }
+    }
+    
+    func tableViewDidSelect(item: MVVMItem) {
+        if let d = item.domain , let p = item.path {
+            FPRouteManager.shared.open(withDomain: d
+                                       , path: p
+                                       , param: nil) { p, error in
+                if let key = p?[FPRouteTargetKey], let v = ((key as? UIViewController)) {
+                    self.weakViewController?.navigationController?.pushViewController(v, animated: true)
+                }
+            }
+        }
+        
     }
 }

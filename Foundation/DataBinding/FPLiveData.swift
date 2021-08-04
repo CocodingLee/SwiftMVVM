@@ -48,7 +48,6 @@ class FPLiveData<T> {
     /// all obs
     private var observers: [FPDisposeable<T>] = []
     
-    
     /// notify
     private func notifyAllObservers() {
         observers.forEach {

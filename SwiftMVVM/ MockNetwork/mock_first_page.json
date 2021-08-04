@@ -2,19 +2,27 @@
     "data": [
         {
             "name": "正常流程",
-            "subName": "有正常的返回值，数据完整"
+            "subName": "有正常的返回值，数据完整",
+            "domain": "domain.fp.biz",
+            "path": "path.fp.biz1"
         },
         {
             "name": "正常流程",
-            "subName": "有空数据返回"
+            "subName": "有空数据返回",
+            "domain": "domain.fp.biz",
+            "path": "path.fp.biz2"
         },
         {
             "name": "异常流程",
-            "subName": "网络异常"
+            "subName": "网络异常",
+            "domain": "domain.fp.biz",
+            "path": "path.fp.biz3"
         },
         {
             "name": "异常流程",
-            "subName": "服务器异常"
+            "subName": "服务器异常",
+            "domain": "domain.fp.biz",
+            "path": "path.fp.biz3"
         }
     ]
 }
