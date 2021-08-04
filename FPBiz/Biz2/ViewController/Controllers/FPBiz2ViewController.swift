@@ -13,7 +13,7 @@ final class FPBiz2ViewController: FPBaseViewController
     lazy private var forXXviewModel = FPBiz2ForXXViewModel()
   
     override func viewDidLoad() {
-        super.navigationTitle = "Biz1"
+        super.navigationTitle = "Biz2"
         super.accessibilityId = "xxxx.xxx.xx"
         
         super.viewDidLoad()

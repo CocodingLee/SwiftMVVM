@@ -30,9 +30,9 @@ public class FPRouteManager
     /// - Parameters:
     ///   - url: url
     ///   - completion: callback
-    func open(with url: URL, completion: FPRouteCompletion)
+    func open(withURL url: URL, completion: FPRouteCompletion)
     {
-        self.open(with: url
+        self.open(withURL: url
                   , addition: nil
                   , completion: completion)
     }
@@ -48,11 +48,11 @@ public class FPRouteManager
               , param: FPRouteInputParams
               , completion: FPRouteCompletion)
     {
-        self.openScheme(with: nil
-                        , domain: domain
-                        , path: path
-                        , param: param
-                        , completion: completion)
+        self.open(withScheme: nil
+                  , domain: domain
+                  , path: path
+                  , param: param
+                  , completion: completion)
     }
     
     /// open url
@@ -60,7 +60,7 @@ public class FPRouteManager
     ///   - url: url
     ///   - addition: addition params
     ///   - completion: callback
-    func open(with url: URL
+    func open(withURL url: URL
               , addition: FPRouteInputParams
               , completion: FPRouteCompletion)
     {
@@ -76,11 +76,11 @@ public class FPRouteManager
             })
         }
         
-        self.openScheme(with: url.scheme
-                        , domain: url.host ?? ""
-                        , path: path
-                        , param: params
-                        , completion: completion)
+        self.open(withScheme: url.scheme
+                  , domain: url.host ?? ""
+                  , path: path
+                  , param: params
+                  , completion: completion)
     }
     
     /// ping domain
@@ -100,11 +100,11 @@ public class FPRouteManager
         }
     }
     
-    private func openScheme(with scheme: String?
-                            , domain: String
-                            , path: String
-                            , param: FPRouteInputParams
-                            , completion: FPRouteCompletion)
+    private func open(withScheme scheme: String?
+                      , domain: String
+                      , path: String
+                      , param: FPRouteInputParams
+                      , completion: FPRouteCompletion)
     {
         let plugin: AnyClass? = self.pluginManager?.pluginWith(domain: domain, path: path)
         if let cls = plugin {
@@ -128,7 +128,7 @@ public class FPRouteManager
             }
         } else {
             let err = FPErrorFactory(code: FPRouteErrorCode.FPRouteErrorNotFindPlugin.rawValue
-                                    , msg: "not find plugin")
+                                     , msg: "not find plugin")
             completion(nil , err)
         }
     }
@@ -195,7 +195,7 @@ public class FPRouteManager
         } else {
             let msg = "url scheme error:" + routeString
             let err = FPErrorFactory(code: FPRouteErrorCode.FPRouteErrorURLError.rawValue
-                                    , msg: msg)
+                                     , msg: msg)
             completion(nil , err)
             return true
         }
