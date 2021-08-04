@@ -11,13 +11,13 @@ class ViewController: FPBaseViewController , UITableViewDelegate , UITableViewDa
     
     private let cellReuseIdentifier = "demo.cell"
     private lazy var tableView: UITableView = UITableView()
+    private lazy var viewModel = ViewModel()
     
     override func viewDidLoad() {
         self.navigationTitle = "首页"
         self.accessibilityId = "xxx.xxx.xxx"
         
         super.viewDidLoad()
-        setupTableView()
     }
     
     private func setupTableView()
@@ -42,15 +42,34 @@ class ViewController: FPBaseViewController , UITableViewDelegate , UITableViewDa
     }
     
     override func bindViewModel() -> Void {
+        self.viewModel.contents.add(observer: self) {[weak self] data in
+            // updata UI
+            assert(Thread.isMainThread , "pls update UI in main thread")
+            self?.tableView.reloadData()
+        }.disposed(by: bag)
         
+        self.viewModel.error.add(observer: self) {[weak self]  error in
+            // updata UI
+            assert(Thread.isMainThread , "pls update UI in main thread")
+            
+            //
+            // first time,show empty error page
+            //
+            if let first = self?.viewModel.firstTimeLoadData , first == true {
+                
+            } else {
+                
+            }
+        }.disposed(by: bag)
     }
     
     override func setupSubViews() -> Void {
-        
+        // add table view
+        setupTableView()
     }
     
     override func fetchDataFromServer() -> Void {
-        
+        self.viewModel.load()
     }
 }
 
@@ -65,7 +84,11 @@ extension ViewController
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        if let a = self.viewModel.contents.value??.data , a.count > 0 {
+            return a.count
+        }
+        
+        return 0
     }
 }
 

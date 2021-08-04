@@ -62,7 +62,9 @@ extension FPBaseRequest
             throw err
         }
         
-        return MobileX_HTTPRequest();
+        var h = MobileX_HTTPRequest()
+        h.path = self.path
+        return h
     }
 }
 

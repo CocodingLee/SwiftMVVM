@@ -39,7 +39,7 @@ class FPDisposeable<T> {
 class FPLiveData<T> {
     
     /// A class with generic data holder
-    private var value: T? {
+    private(set) var value: T? {
         didSet {
             notifyAllObservers()
         }

@@ -10,7 +10,7 @@ import Foundation
 // mock
 class MobileX_HTTPRequest
 {
-    
+    var path: String?
 }
 
 class MobileX_HTTPResponseBody
@@ -39,11 +39,18 @@ class MockFPNetwork
                , completion:@escaping (MobileX_HTTPResult<MobileX_HTTPResponse>) -> Void) -> Void {
         
         // 虚假请求
+        var data: Data? = nil
+        if ((input.path?.contains("https://sfp.xxx.xx/content")) != nil) {
+            guard let path = Bundle.main.path(forResource: "mock_first_page", ofType: "json") else { return }
+            let localData = NSData.init(contentsOfFile: path)! as Data
+            data = localData
+        }
+        
         DispatchQueue.main.asyncAfter(deadline: 1) {
             let r = MobileX_HTTPResponse()
             
             r.body = MobileX_HTTPResponseBody()
-            r.body?.content = Data()
+            r.body?.content = data
             r.code = 200
             
             completion(.success(r))

@@ -11,4 +11,9 @@ import UIKit
 class FPBaseViewModel
 {
     weak var weakViewController: UIViewController?
+    
+    // 
+    // is first time to load data
+    // use by load more
+    var firstTimeLoadData = true
 }
