@@ -14,6 +14,12 @@ class FPBaseViewController: UIViewController
     let bag = FPDisposedBag()
     var navigationTitle: String?
     var accessibilityId: String?
+    var navigationBarHeight: CGFloat {
+        let navHeight = self.navigationController?.navigationBar.frame.size.height ?? 44.0;
+        let safeArea = UIWindow.fpSafeArea()
+        
+        return navHeight + safeArea.top
+    }
     
     // setup navigation
     func setupNavigationBar(withTitle:String , accessibilityId:String) {

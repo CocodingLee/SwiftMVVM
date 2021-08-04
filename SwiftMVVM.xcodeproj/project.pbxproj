@@ -13,6 +13,14 @@
 		9BA8A38E26B44822002114C3 /* FPExtension+Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA8A38D26B44822002114C3 /* FPExtension+Dictionary.swift */; };
 		9BA8A39026B4484B002114C3 /* FPExtension+DispatchTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA8A38F26B4484B002114C3 /* FPExtension+DispatchTime.swift */; };
 		9BA8A39326B91455002114C3 /* FPModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA8A39226B91455002114C3 /* FPModel.swift */; };
+		9BA8A39626B91AAD002114C3 /* LiveData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA8A39526B91AAD002114C3 /* LiveData.swift */; };
+		9BA8A39826B91BEF002114C3 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA8A39726B91BEF002114C3 /* ViewModel.swift */; };
+		9BA8A39A26B9211B002114C3 /* FPExtension+UIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA8A39926B9211B002114C3 /* FPExtension+UIKit.swift */; };
+		9BA8A3A126BA3206002114C3 /* EmptyDataSetDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA8A39C26BA3206002114C3 /* EmptyDataSetDelegate.swift */; };
+		9BA8A3A226BA3206002114C3 /* EmptyDataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA8A39D26BA3206002114C3 /* EmptyDataSet.swift */; };
+		9BA8A3A326BA3206002114C3 /* EmptyDataSetView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA8A39E26BA3206002114C3 /* EmptyDataSetView+Extension.swift */; };
+		9BA8A3A426BA3206002114C3 /* EmptyDataSetSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA8A39F26BA3206002114C3 /* EmptyDataSetSource.swift */; };
+		9BA8A3A526BA3206002114C3 /* EmptyDataSetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA8A3A026BA3206002114C3 /* EmptyDataSetView.swift */; };
 		9BAADDEE26AEA9A2006EF5B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAADDED26AEA9A2006EF5B2 /* AppDelegate.swift */; };
 		9BAADDF226AEA9A2006EF5B2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAADDF126AEA9A2006EF5B2 /* ViewController.swift */; };
 		9BAADDF726AEA9A4006EF5B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BAADDF626AEA9A4006EF5B2 /* Assets.xcassets */; };
@@ -33,7 +41,7 @@
 		9BAADE4E26B11306006EF5B2 /* FPBaseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAADE4D26B11306006EF5B2 /* FPBaseResponse.swift */; };
 		9BAADE5026B14049006EF5B2 /* MockFPNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAADE4F26B14049006EF5B2 /* MockFPNetwork.swift */; };
 		9BAADE5326B14E81006EF5B2 /* FPThread.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAADE5226B14E81006EF5B2 /* FPThread.swift */; };
-		9BAADE5626B1514E006EF5B2 /* mock_network_type.json in Resources */ = {isa = PBXBuildFile; fileRef = 9BAADE5526B1514E006EF5B2 /* mock_network_type.json */; };
+		9BAADE5626B1514E006EF5B2 /* mock_first_page.json in Resources */ = {isa = PBXBuildFile; fileRef = 9BAADE5526B1514E006EF5B2 /* mock_first_page.json */; };
 		9BAADE7526B297AF006EF5B2 /* FPBiz2ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAADE6D26B297AF006EF5B2 /* FPBiz2ViewModel.swift */; };
 		9BAADE7626B297AF006EF5B2 /* FPBiz2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAADE7026B297AF006EF5B2 /* FPBiz2ViewController.swift */; };
 		9BAADE7726B297AF006EF5B2 /* FPBiz2SubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAADE7226B297AF006EF5B2 /* FPBiz2SubView.swift */; };
@@ -73,6 +81,14 @@
 		9BA8A38D26B44822002114C3 /* FPExtension+Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FPExtension+Dictionary.swift"; sourceTree = "<group>"; };
 		9BA8A38F26B4484B002114C3 /* FPExtension+DispatchTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FPExtension+DispatchTime.swift"; sourceTree = "<group>"; };
 		9BA8A39226B91455002114C3 /* FPModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FPModel.swift; sourceTree = "<group>"; };
+		9BA8A39526B91AAD002114C3 /* LiveData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveData.swift; sourceTree = "<group>"; };
+		9BA8A39726B91BEF002114C3 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		9BA8A39926B9211B002114C3 /* FPExtension+UIKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FPExtension+UIKit.swift"; sourceTree = "<group>"; };
+		9BA8A39C26BA3206002114C3 /* EmptyDataSetDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyDataSetDelegate.swift; sourceTree = "<group>"; };
+		9BA8A39D26BA3206002114C3 /* EmptyDataSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyDataSet.swift; sourceTree = "<group>"; };
+		9BA8A39E26BA3206002114C3 /* EmptyDataSetView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EmptyDataSetView+Extension.swift"; sourceTree = "<group>"; };
+		9BA8A39F26BA3206002114C3 /* EmptyDataSetSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyDataSetSource.swift; sourceTree = "<group>"; };
+		9BA8A3A026BA3206002114C3 /* EmptyDataSetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyDataSetView.swift; sourceTree = "<group>"; };
 		9BAADDEA26AEA9A2006EF5B2 /* SwiftMVVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftMVVM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BAADDED26AEA9A2006EF5B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9BAADDF126AEA9A2006EF5B2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -99,7 +115,7 @@
 		9BAADE4D26B11306006EF5B2 /* FPBaseResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FPBaseResponse.swift; sourceTree = "<group>"; };
 		9BAADE4F26B14049006EF5B2 /* MockFPNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockFPNetwork.swift; sourceTree = "<group>"; };
 		9BAADE5226B14E81006EF5B2 /* FPThread.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FPThread.swift; sourceTree = "<group>"; };
-		9BAADE5526B1514E006EF5B2 /* mock_network_type.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mock_network_type.json; sourceTree = "<group>"; };
+		9BAADE5526B1514E006EF5B2 /* mock_first_page.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mock_first_page.json; sourceTree = "<group>"; };
 		9BAADE6D26B297AF006EF5B2 /* FPBiz2ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FPBiz2ViewModel.swift; sourceTree = "<group>"; };
 		9BAADE7026B297AF006EF5B2 /* FPBiz2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FPBiz2ViewController.swift; sourceTree = "<group>"; };
 		9BAADE7226B297AF006EF5B2 /* FPBiz2SubView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FPBiz2SubView.swift; sourceTree = "<group>"; };
@@ -148,6 +164,26 @@
 			path = FPModel;
 			sourceTree = "<group>";
 		};
+		9BA8A39426B91A9B002114C3 /* LiveData */ = {
+			isa = PBXGroup;
+			children = (
+				9BA8A39526B91AAD002114C3 /* LiveData.swift */,
+			);
+			path = LiveData;
+			sourceTree = "<group>";
+		};
+		9BA8A39B26BA31EA002114C3 /* EmptyData */ = {
+			isa = PBXGroup;
+			children = (
+				9BA8A39D26BA3206002114C3 /* EmptyDataSet.swift */,
+				9BA8A39C26BA3206002114C3 /* EmptyDataSetDelegate.swift */,
+				9BA8A39F26BA3206002114C3 /* EmptyDataSetSource.swift */,
+				9BA8A3A026BA3206002114C3 /* EmptyDataSetView.swift */,
+				9BA8A39E26BA3206002114C3 /* EmptyDataSetView+Extension.swift */,
+			);
+			path = EmptyData;
+			sourceTree = "<group>";
+		};
 		9BAADDE126AEA9A2006EF5B2 = {
 			isa = PBXGroup;
 			children = (
@@ -175,6 +211,7 @@
 			children = (
 				9BAADE5426B150E2006EF5B2 /*  MockNetwork */,
 				9BAADDED26AEA9A2006EF5B2 /* AppDelegate.swift */,
+				9BA8A39726B91BEF002114C3 /* ViewModel.swift */,
 				9BAADDF126AEA9A2006EF5B2 /* ViewController.swift */,
 				9BAADDF626AEA9A4006EF5B2 /* Assets.xcassets */,
 				9BAADDF826AEA9A4006EF5B2 /* LaunchScreen.storyboard */,
@@ -186,6 +223,7 @@
 		9BAADE0326AEA9A4006EF5B2 /* SwiftMVVMTests */ = {
 			isa = PBXGroup;
 			children = (
+				9BA8A39426B91A9B002114C3 /* LiveData */,
 				9BA8A39126B91440002114C3 /* FPModel */,
 				9BAADE8826B2A7BD006EF5B2 /* FPRoute */,
 				9BAADE0426AEA9A4006EF5B2 /* SwiftMVVMTests.swift */,
@@ -206,6 +244,7 @@
 		9BAADE1D26AEDC5E006EF5B2 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				9BA8A39B26BA31EA002114C3 /* EmptyData */,
 				9BAADE5126B141DE006EF5B2 /* UIKit */,
 				9BAADE4826B0FF6A006EF5B2 /* Network */,
 				9BAADE4726B002EA006EF5B2 /* FPGlobal */,
@@ -369,6 +408,7 @@
 				9BA8A38B26B44802002114C3 /* FPExtension+URL.swift */,
 				9BA8A38D26B44822002114C3 /* FPExtension+Dictionary.swift */,
 				9BA8A38F26B4484B002114C3 /* FPExtension+DispatchTime.swift */,
+				9BA8A39926B9211B002114C3 /* FPExtension+UIKit.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -376,7 +416,7 @@
 		9BAADE5426B150E2006EF5B2 /*  MockNetwork */ = {
 			isa = PBXGroup;
 			children = (
-				9BAADE5526B1514E006EF5B2 /* mock_network_type.json */,
+				9BAADE5526B1514E006EF5B2 /* mock_first_page.json */,
 				9BAADE4F26B14049006EF5B2 /* MockFPNetwork.swift */,
 			);
 			path = " MockNetwork";
@@ -585,7 +625,7 @@
 			files = (
 				9BAADDFA26AEA9A4006EF5B2 /* LaunchScreen.storyboard in Resources */,
 				9BAADDF726AEA9A4006EF5B2 /* Assets.xcassets in Resources */,
-				9BAADE5626B1514E006EF5B2 /* mock_network_type.json in Resources */,
+				9BAADE5626B1514E006EF5B2 /* mock_first_page.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -616,26 +656,33 @@
 				9BAADE9126B2B4E8006EF5B2 /* FPDefine.swift in Sources */,
 				9BAADE2F26AFDDC0006EF5B2 /* FPBiz1ViewController.swift in Sources */,
 				9BA8A39026B4484B002114C3 /* FPExtension+DispatchTime.swift in Sources */,
+				9BA8A3A326BA3206002114C3 /* EmptyDataSetView+Extension.swift in Sources */,
+				9BA8A39826B91BEF002114C3 /* ViewModel.swift in Sources */,
 				9BAADE7726B297AF006EF5B2 /* FPBiz2SubView.swift in Sources */,
 				9BAADE5026B14049006EF5B2 /* MockFPNetwork.swift in Sources */,
 				9BAADE7826B297AF006EF5B2 /* FPBiz2Model.swift in Sources */,
 				9BA8A38826B3A942002114C3 /* FPRouteManager.swift in Sources */,
+				9BA8A3A426BA3206002114C3 /* EmptyDataSetSource.swift in Sources */,
 				9BAADDF226AEA9A2006EF5B2 /* ViewController.swift in Sources */,
 				9BAADE3D26AFDE8C006EF5B2 /* FPBiz1Model.swift in Sources */,
 				9BA8A38E26B44822002114C3 /* FPExtension+Dictionary.swift in Sources */,
 				9BAADE4A26B0FF97006EF5B2 /* FPBaseRequest.swift in Sources */,
+				9BA8A3A526BA3206002114C3 /* EmptyDataSetView.swift in Sources */,
 				9BAADE7526B297AF006EF5B2 /* FPBiz2ViewModel.swift in Sources */,
+				9BA8A3A226BA3206002114C3 /* EmptyDataSet.swift in Sources */,
 				9BAADE4226AFFF15006EF5B2 /* Runtime.swift in Sources */,
 				9BAADE8C26B2AFD3006EF5B2 /* FPRouteRegTree.swift in Sources */,
 				9BAADE4626B0011D006EF5B2 /* FPRouteProtocol.swift in Sources */,
 				9BAADE3926AFDE5D006EF5B2 /* FPBaseModel.swift in Sources */,
 				9BAADDEE26AEA9A2006EF5B2 /* AppDelegate.swift in Sources */,
+				9BA8A3A126BA3206002114C3 /* EmptyDataSetDelegate.swift in Sources */,
 				9BAADE3B26AFDE7B006EF5B2 /* FPBiz1ViewModel.swift in Sources */,
 				9BAADE3726AFDE2F006EF5B2 /* FPBaseViewModel.swift in Sources */,
 				9BA8A38C26B44802002114C3 /* FPExtension+URL.swift in Sources */,
 				9BAADE1F26AEDCC7006EF5B2 /* FPLiveData.swift in Sources */,
 				9BAADE8426B29832006EF5B2 /* FPBiz3SubView.swift in Sources */,
 				9BAADE8526B29832006EF5B2 /* FPBiz3Model.swift in Sources */,
+				9BA8A39A26B9211B002114C3 /* FPExtension+UIKit.swift in Sources */,
 				9BAADE3126AFDDD0006EF5B2 /* FPBiz1SubView.swift in Sources */,
 				9BAADE8226B29832006EF5B2 /* FPBiz3ViewModel.swift in Sources */,
 				9BAADE8E26B2B33B006EF5B2 /* FPRouteRegManager.swift in Sources */,
@@ -653,6 +700,7 @@
 				9BA8A39326B91455002114C3 /* FPModel.swift in Sources */,
 				9BAADE0526AEA9A4006EF5B2 /* SwiftMVVMTests.swift in Sources */,
 				9BAADE8A26B2A7E1006EF5B2 /* FPRoute.swift in Sources */,
+				9BA8A39626B91AAD002114C3 /* LiveData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
