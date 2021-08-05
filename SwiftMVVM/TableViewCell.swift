@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class FPDemoTableViewCell: UITableViewCell
+class FPDemoTableViewCell: UITableViewCell , FPBaseView
 {
     private lazy var nameLabel = UILabel()
     private lazy var subNameLabel = UILabel()
@@ -60,12 +60,13 @@ class FPDemoTableViewCell: UITableViewCell
         ])
     }
     
-    func bindViewModel(viewModel: ViewModel?) {
-        self.viewModel = viewModel
+    func bindViewModel(viewModel: AnyObject?) {
+        self.viewModel = viewModel as? ViewModel
     }
     
-    func updateViewWith(item: MVVMItem?) {
-        nameLabel.text = item?.name
-        subNameLabel.text = item?.subName
+    func updateViewWith(item: AnyObject?) {
+        let i = item as? MVVMItem
+        nameLabel.text = i?.name ?? ""
+        subNameLabel.text = i?.subName ?? ""
     }
 }
